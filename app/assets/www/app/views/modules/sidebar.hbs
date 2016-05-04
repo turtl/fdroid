@@ -1,0 +1,53 @@
+<div class="overlay"></div>
+<div class="inner">
+	<div class="gutter">
+		<ul>
+			<!--
+			<li>
+				<a href="/">
+					{{icon 'notes'}}
+					All notes
+				</a>
+			</li>
+			<li class="sep">
+				<a href="/boards">
+					{{icon 'boards'}}
+					Boards
+				</a>
+			</li>
+			<li rel="share">
+				<a href="/sharing">
+					{{icon 'share'}}
+					Sharing
+				</a>
+			</li>
+			-->
+			<li>
+				<a href="/settings">
+					{{icon 'account'}}
+					Your settings
+				</a>
+			</li>
+			<li>
+				<a href="/feedback">
+					{{icon 'feedback'}}
+					Feedback
+				</a>
+			</li>
+			<li>
+				<a href="/users/logout">
+					{{icon 'logout'}}
+					Logout
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="footer">
+		<div class="connection {{#if connected}}connected{{/if}}">
+			{{icon 'connection'}}
+			<span class="connected">Connected to the Turtl service</span>
+			<span class="disconnected">Offline mode</span>
+		</div>
+	</div>
+</div>
+

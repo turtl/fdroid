@@ -1,0 +1,35 @@
+@import '../variables';
+
+.settings {
+	> ul.item-list {margin-bottom: 16rem;}
+	> ul.item-list {
+		> li {padding: 0;}
+		> li {
+			a {display: block; padding: 16rem 9rem; font-size: 17rem; color: @theme_black;}
+			a {
+				icon {float: right; margin: 2rem 0 0 0; color: @theme_black; .transform(rotate(180deg));}
+			}
+		}
+	}
+}
+
+.settings-password {
+	form.standard-form {.standard-width(); padding-top: 24rem; .uncard();}
+	.section {margin: 0 0 24rem 0;}
+	.section {
+		h3 {margin: 0 0 12rem 0; font-size: 16rem;}
+	}
+	p.load {display: inline-block; visibility: hidden; width: 0; margin: 0 0 0 6rem; padding: 0 0 0 0; vertical-align: middle; overflow: visible;}
+	p.load {
+		&.active {visibility: visible;}
+		svg {width: 24rem; height: 24rem;}
+		svg {
+			path {fill: @theme_accent;}
+		}
+	}
+}
+
+.settings-delete-account {
+	form.standard-form {padding-bottom: 32rem;}
+}
+

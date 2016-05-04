@@ -1,0 +1,17 @@
+#!/bin/bash
+
+version=$1
+
+if [ "${version}" == "" ]; then
+	echo
+	echo "  Usage: $0 <version>"
+	echo
+	exit 1
+fi
+
+git add .
+git commit -m "Automated commit for build ${version}"
+git tag v${version}
+git push origin master
+git push --tags
+

@@ -1,0 +1,46 @@
+@import 'variables';
+
+@action_size: 50rem;
+@action_sub_size: 42rem;
+@action_offset: 18rem;
+#main,
+.turtl-modal {
+	> .action {position: fixed; .fixed-fix(); z-index: 12; bottom: @action_offset; right: @action_offset;}
+	> .action {
+		.abutton {position: relative; display: inline-block; width: @action_size; height: @action_size; text-align: center; border: 2rem solid #fff; border-radius: (@action_size / 1.9cm); background: @theme_primary; .layer-hover(); .transition(box-shadow .3s);}
+		.abutton {
+			icon {line-height: 2.2em; color: #fff; font-size: 22rem;}
+			icon.add {font-size: 32rem; line-height: 1.63em;}
+		}
+		> a {z-index: 21;}
+		ul {display: none; margin: 0 0 0 0; padding: 0; list-style: none;}
+		ul {
+			li {position: fixed; z-index: 20; bottom: @action_offset; right: /*@action_offset*/ 0; opacity: 0; text-align: right; white-space: nowrap;}
+			li {
+				.abutton {width: @action_sub_size; height: @action_sub_size; margin-right: ((@action_size - @action_sub_size) / 2);}
+				.abutton {
+					icon {line-height: 1.95em;}
+				}
+				h4 {display: none; margin: 0 8rem 0 0; padding: 5rem; cursor: pointer; font-size: 14rem; color: #fff; background: rgba(0, 0, 0, .9); border-radius: 2rem;}
+			}
+		}
+	}
+	> .action.open {
+		> a {.layer-flat();}
+		//> .abutton icon {.transform(rotate(135deg));}
+		ul {display: block;}
+		ul {
+			li {opacity: 1;}
+			li {
+				h4 {display: inline-block;}
+			}
+			.generate_action_lis(@counter) when (@counter >= 0) {
+				.generate_action_lis((@counter - 1));
+				li.item-@{counter} {bottom: (@action_offset + ((@counter + 1) * 56rem));}
+			}
+			//.generate_action_lis(10);
+		}
+	}
+	> .action.hide {display: none;}
+}
+

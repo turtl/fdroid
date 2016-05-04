@@ -1,0 +1,10 @@
+.DS_Store
+config/config.js
+node_modules
+index.html
+*.css
+!reset.css
+library/templates.js
+library/svg-icons.js
+*.stackdump
+

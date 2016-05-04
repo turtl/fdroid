@@ -1,0 +1,40 @@
+@import '../variables';
+
+.turtl-modal.search {width: 90%; background: rgba(255, 255, 255, 1);}
+.turtl-modal.search {
+	header {width: 90%;}
+	@media @desktop {
+		& {background: rgba(255, 255, 255, .92);}
+		&, header {width: @desktop_modal_width / 2;}
+	}
+}
+
+.search-filters {padding: 16rem 6rem 0 6rem;}
+.search-filters {
+	@media @desktop {
+		& {padding-left: 12rem; padding-right: 12rem;}
+	}
+	.filter-sort {padding: 0 0 16rem 0;}
+	.filter-sort {
+		ul {list-style: none; text-align: center;}
+		ul {
+			li {display: inline-block; margin: 0 0; border-left: 1px solid @form_border;}
+			li:first-child {border-left: 0;}
+			li {
+				a {display: inline-block; padding: 0 6rem; font-size: 17rem;}
+				a {
+					icon {display: none; margin: 0 3rem 0 0; transform: rotate(90deg);}
+				}
+			}
+			li.sel a icon {display: inline-block;}
+			li.desc a icon {transform: rotate(-90deg);}
+		}
+	}
+	.filter-text {
+		form {padding: 0;}
+	}
+	.filter-tags {
+		a[rel=all] {display: block; padding: 0 0 16rem 0; text-align: center; font-size: 16rem;}
+	}
+}
+

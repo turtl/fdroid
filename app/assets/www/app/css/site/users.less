@@ -1,0 +1,64 @@
+@import 'variables';
+
+.user-login,
+.user-join,
+.user-persona-join {
+	form {padding-top: 38rem; .uncard();}
+	.buttons {margin: 32rem 0 0 0;}
+	.button {margin: 0 0 16rem 0;}
+	p.load {display: inline-block; visibility: hidden; width: 0; margin: 0 0 0 6rem; padding: 0 0 0 0; vertical-align: middle; overflow: visible;}
+	p.load {
+		&.active {visibility: visible;}
+		svg {width: 24rem; height: 24rem;}
+		svg {
+			path {fill: @theme_accent;}
+		}
+	}
+	a.open-settings {display: block; margin: 32rem 0 8rem 0; font-size: 1.3em; text-align: center;}
+	a.open-settings {
+		&.active icon {transform: rotate(90deg);}
+		icon {font-size: 14rem; color: @theme_primary; transform: rotate(270deg); .transition(transform .3s);}
+	}
+	p.settings {margin: 0 0 16rem 0; padding: 10rem; .card();}
+	p.settings {
+		label {color: @theme_gray}
+		small {font-size: 0.7em;}
+	}
+
+	p.join {text-align: center;}
+
+	.strength {margin: 16rem 8rem 0 8rem;}
+	.strength {
+		p {padding: 4px 0; font-size: 14rem; text-align: center;}
+		&.level-too-short .inner {background: @theme_warn;}
+		&.level-too-short span {color: @theme_warn;}
+		&.level-weak .inner {background: #e88755;}
+		&.level-weak span {color: #e88755;}
+		&.level-ok .inner {background: #9ab389;}
+		&.level-ok span {color: #9ab389;}
+		&.level-good .inner {background: @theme_primary;}
+		&.level-good span {color: @theme_primary;}
+		&.level-great .inner,
+		&.level-excellent .inner {background: @theme_accent;}
+		&.level-great span,
+		&.level-excellent span {color: @theme_accent;}
+	}
+}
+.user-persona-join {
+	form {padding-top: 12rem;}
+}
+
+.user-join.confirm {}
+.user-join.confirm {
+	.confirm-text {padding: 24rem 16rem 0 16rem; font-size: .9em; text-align: left;}
+	.confirm-text em {font-style: italic;}
+	.buttons {padding: 6rem 0 16rem 0;}
+	.button {margin-top: 0;}
+}
+
+.user-main {width: 700rem; margin: 60rem auto 0 auto;}
+.user-main {
+	.login-main {float: left;}
+	.join-main {float: right; padding-left: 50rem; border-left: 1rem solid #ccc;}
+}
+

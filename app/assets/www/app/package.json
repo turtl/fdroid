@@ -1,0 +1,14 @@
+{
+  "name": "turtl-js",
+  "version": "0.6.0",
+  "description": "Turtl's javascript interface",
+  "author": "Andrew Lyon",
+  "license": "GPLv3",
+  "devDependencies": {
+    "autoprefixer": "^6.0.3",
+    "es6-promise": "^3.0.2",
+    "handlebars": "^2.0.0",
+    "less": "^2.5.3",
+    "postcss-cli": "^2.3.2"
+  }
+}
