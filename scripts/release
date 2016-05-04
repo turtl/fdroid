@@ -10,7 +10,7 @@ if [ "${version}" == "" ]; then
 fi
 
 git add .
-git commit -m "Automated commit for build ${version}" || (echo "No changes to repo, exiting." ; exit 1)
+git commit -m "Automated commit for build ${version}" || exit 1
 git tag v${version}
 git push origin master
 git push --tags
