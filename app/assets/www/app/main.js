@@ -172,6 +172,7 @@ var turtl = {
 			turtl.search = new Search();
 			turtl.files = new Files();
 			turtl.user.get_auth().then(turtl.api.set_auth.bind(turtl.api))
+			turtl.events.trigger('app:objects-loaded');
 
 			turtl.show_loading_screen(true);
 			turtl.update_loading_screen('Initializing Turtl');
@@ -214,7 +215,7 @@ var turtl = {
 				})
 				.catch(function(err) {
 					barfr.barf('There was a problem with the initial load of your profile. Please try again.');
-					log.error(derr(err));
+					log.error('turtl: load: ', derr(err));
 					var what_next = new Element('div.choice');
 					var retry = new Element('a')
 						.set('href', '#retry')
@@ -291,6 +292,7 @@ var turtl = {
 
 			turtl.route('/');
 
+			turtl.events.trigger('user:logout');
 			if(window.port) window.port.send('logout');
 		}.bind(turtl));
 	},
@@ -434,7 +436,18 @@ var turtl = {
 			}
 		}, options);
 		turtl.router = new Composer.Router(config.routes, options);
-		turtl.router.bind_links({ filter_trailing_slash: true });
+		turtl.router.bind_links({
+			filter_trailing_slash: true,
+			selector: 'a:not([href^=#])'
+		});
+
+		// catch ALL #hash links and stop them in their tracks. this fixes a bug
+		// in NWJS v0.15.x where setting the window location to a hash crashes
+		// the app (at least in windows)
+		Composer.add_event(document.body, 'click', function(e) {
+			if(e) e.stop();
+		}, 'a[href^="#"]');
+
 		turtl.router.bind('route', turtl.controllers.pages.trigger.bind(turtl.controllers.pages, 'route'));
 		turtl.router.bind('preroute', turtl.controllers.pages.trigger.bind(turtl.controllers.pages, 'preroute'));
 		turtl.router.bind('fail', function(obj) {

@@ -39,6 +39,16 @@
                         {
                             "xml": "<feature name=\"File\"><param name=\"android-package\" value=\"org.apache.cordova.file.FileUtils\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"BackbuttonPlugin\"><param name=\"android-package\" value=\"com.badrit.Backbutton.BackbuttonPlugin\" /></feature>",
+                            "count": 1
+                        }
+                    ],
+                    "/widget": [
+                        {
+                            "xml": "<feature name=\"SecureCache\"><param name=\"android-package\" value=\"com.lyonbros.securecache.SecureCachePlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -56,6 +66,22 @@
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest": [
+                        {
+                            "xml": "<permission android:label=\"Access to SecureCache's data\" android:name=\"com.lyonbros.securecache.ACCESS_SECRETS\" android:protectionLevel=\"signature\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"com.lyonbros.securecache.ACCESS_SECRETS\" />",
+                            "count": 1
+                        }
+                    ],
+                    "/manifest/application": [
+                        {
+                            "xml": "<service android:enabled=\"true\" android:exported=\"false\" android:name=\"com.lyonbros.securecache.SecureCacheService\" />",
                             "count": 1
                         }
                     ]
@@ -84,6 +110,12 @@
             "PACKAGE_NAME": "com.lyonbros.turtl"
         },
         "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.lyonbros.turtl"
+        },
+        "com.lyonbros.securecache": {
+            "PACKAGE_NAME": "com.lyonbros.turtl"
+        },
+        "cordova-plugin-backbutton": {
             "PACKAGE_NAME": "com.lyonbros.turtl"
         }
     },
@@ -293,6 +325,24 @@
                 "cordova"
             ],
             "runs": true
+        },
+        {
+            "file": "plugins/com.lyonbros.securecache/www/cache.js",
+            "id": "com.lyonbros.securecache.securecache",
+            "clobbers": [
+                "SecureCache"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-backbutton/www/Backbutton.js",
+            "id": "cordova-plugin-backbutton.Backbutton",
+            "clobbers": [
+                "navigator.Backbutton"
+            ]
         }
-    ]
+    ],
+    "plugin_metadata": {
+        "com.lyonbros.securecache": "0.1.0",
+        "cordova-plugin-backbutton": "0.3.0"
+    }
 }

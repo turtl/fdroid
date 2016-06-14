@@ -1,4 +1,4 @@
-var UserJoinController = FormController.extend({
+var UserJoinController = UserBaseController.extend({
 	elements: {
 		'input[name=username]': 'inp_username',
 		'input[name=password]': 'inp_password',
@@ -56,6 +56,8 @@ var UserJoinController = FormController.extend({
 		var content = view.render('users/join', {
 			server: config.api_url,
 			enable_promo: config.enable_promo,
+			autologin: this.autologin(),
+			show_autologin: config.has_autologin,
 			promo: localStorage.promo
 		});
 		this.html(content);
@@ -144,6 +146,7 @@ var UserJoinController = FormController.extend({
 				data.id = userdata.id;
 				turtl.events.bind_once('app:load:profile-loaded', this.create_initial_boards.bind(this));
 				return turtl.user.login(data)
+					.then(this.save_login.bind(this));
 			})
 			.then(function() {
 				turtl.events.bind_once('app:load:profile-loaded', function() {

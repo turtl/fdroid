@@ -204,10 +204,27 @@ module.exports = [
             "cordova"
         ],
         "runs": true
+    },
+    {
+        "file": "plugins/com.lyonbros.securecache/www/cache.js",
+        "id": "com.lyonbros.securecache.securecache",
+        "clobbers": [
+            "SecureCache"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-backbutton/www/Backbutton.js",
+        "id": "cordova-plugin-backbutton.Backbutton",
+        "clobbers": [
+            "navigator.Backbutton"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
-{}
+{
+    "com.lyonbros.securecache": "0.1.0",
+    "cordova-plugin-backbutton": "0.3.0"
+};
 // BOTTOM OF METADATA
 });
