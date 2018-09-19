@@ -24,7 +24,7 @@ var NotesSearchController = Composer.Controller.extend({
 
 	init: function()
 	{
-		var titlefn = function(num) { return 'Search notes ('+ num +')'; };
+		var titlefn = function(num) { return i18next.t('Search notes ({{num}})', {num: num}); };
 
 		this.tags = clone(this.tags);
 		this.tags.sort(function(a, b) {
@@ -39,7 +39,7 @@ var NotesSearchController = Composer.Controller.extend({
 			show_header: true,
 			title: titlefn(turtl.search.total),
 			actions: [
-				{name: 'reset', icon: 'everything', title: 'Reset search'}
+				{name: 'reset', icon: 'everything', title: i18next.t('Reset search')}
 			]
 		});
 		this.render();
@@ -62,11 +62,11 @@ var NotesSearchController = Composer.Controller.extend({
 					break;
 			}
 		}.bind(this));
-		this.with_bind(turtl.search, 'reset', function() {
-			this.modal.set_title(titlefn(turtl.search.total), turtl.last_url);
+		this.with_bind(turtl.search, 'search-done', function(_notes, _tags, total) {
+			this.modal.set_title(titlefn(total), turtl.last_url);
 		}.bind(this));
 
-		var timer = new Timer(500);
+		var timer = new Timer(250);
 		this.with_bind(timer, 'fired', this.trigger.bind(this, 'do-search'));
 		this.bind('search-text', timer.reset.bind(timer));
 		this.bind('release', function() {

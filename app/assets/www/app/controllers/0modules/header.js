@@ -7,15 +7,16 @@ var HeaderController = Composer.Controller.extend({
 	},
 
 	events: {
-		'click a.logo': 'toggle_sidebar',
+		'click a.logo, space': 'toggle_sidebar',
 		'click .actions li .item-actions li a': 'fire_menu_action',
-		'click .actions li': 'fire_action'
+		'click .actions li': 'fire_action',
 	},
 
 	actions: [],
 
 	bind_to: null,
 	notifications: {},
+	title_updater: null,
 
 	init: function()
 	{
@@ -28,14 +29,6 @@ var HeaderController = Composer.Controller.extend({
 			this.set_actions(actions);
 			binder.bind('close', this.set_actions.bind(this, old_actions));
 		}.bind(this));
-		this.with_bind(turtl.events, 'notification:set', function(type) {
-			this.notifications[type] = true;
-			this.update_notification();
-		}.bind(this));
-		this.with_bind(turtl.events, 'notification:clear', function(type) {
-			delete this.notifications[type];
-			this.update_notification();
-		}.bind(this));
 	},
 
 	render: function()
@@ -45,7 +38,10 @@ var HeaderController = Composer.Controller.extend({
 			actions: this.actions
 		}));
 		this.render_actions();
-		this.update_notification();
+	},
+
+	update_title: function(newtitle) {
+		if(this.title_updater) this.title_updater(newtitle);
 	},
 
 	render_title: function(title, backurl, options)
@@ -55,7 +51,7 @@ var HeaderController = Composer.Controller.extend({
 		var html = title || '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 		if(backurl)
 		{
-			html = '<a href="'+ backurl +'" rel="back"><icon>'+icon('back')+'</icon><span>&nbsp;&nbsp;'+ html +'</span></a>';
+			html = '<a href="'+ backurl +'" rel="back"><icon>'+icon('back')+'</icon>'+html+'</a>';
 			this.el.addClass('has-back');
 		}
 		else
@@ -63,8 +59,23 @@ var HeaderController = Composer.Controller.extend({
 			html = '<span>'+html+'</span>';
 			this.el.removeClass('has-back');
 		}
-		var html = '<em>'+html+'</em>';
-
+		if(options.prefix_space)
+		{
+			var space = turtl.profile.current_space();
+			var color = space.get_color();
+			html = '<space class="'+color.txt+'" style="background-color: '+color.bg+';">'+space.get('title')+'</space>'+html;
+		}
+		var update_title = function() {
+			if(!options.prefix_space) return;
+			this.render_title(title, backurl, options);
+		}.bind(this);
+		this.title_updater = function(newtitle) {
+			this.render_title(newtitle, backurl, options);
+		}.bind(this);
+		if(turtl.profile) {
+			this.with_bind(turtl.profile.get('spaces'), ['change:title', 'change:color'], update_title, 'header:bind-space-title:'+this.cid());
+		}
+		this.with_bind(turtl.events, 'profile:set-current-space', update_title, 'header:bind-space-title:'+this.cid());
 		this.el_header.set('html', html);
 	},
 
@@ -128,23 +139,8 @@ var HeaderController = Composer.Controller.extend({
 		var rel = a && a.get('rel');
 		if(!rel) return;
 		setTimeout(function() {
-			this.bind_to.trigger('header:menu:fire-action', rel);
+			this.bind_to.trigger('header:menu:fire-action', rel, a);
 		}.bind(this));
 	},
-
-	update_notification: function()
-	{
-		// NOTE: disable header notifications until we need them (for app updates
-		// for instance)
-		return;
-		if(turtl.user.logged_in && Object.keys(this.notifications).length > 0)
-		{
-			this.el.addClass('notify');
-		}
-		else
-		{
-			this.el.removeClass('notify');
-		}
-	}
 });
 

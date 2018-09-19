@@ -5,20 +5,31 @@
 {{/if}}
 
 {{#if has_file}}
-	<div class="file {{#if note.file.encrypting}}encrypting{{/if}}">
-		{{#if note.file.encrypting}}
-			<strong class="encrypting">
+	<div class="file download {{#if note.file.encrypting}}encrypting{{/if}}">
+		<strong>
+			<a href="#open" rel="download">
+				{{icon 'attachment'}}
 				{{svg 'loading'}}
 				{{note.file.name}}
-			</strong>
-		{{else}}
-			<strong>
-				<a href="#open" rel="download">
-					{{icon 'attachment'}}
-					{{svg 'loading'}}
-					{{note.file.name}}
-				</a>
-			</strong>
+			</a>
+		</strong>
+	</div>
+{{/if}}
+
+{{#if show_info}}
+	<div class="info-container">
+		<div class="tags-container">
+			{{#if tags}}
+				<ul>
+					<li class="icon">{{icon 'tag'}}</li>
+					{{#each tags}}
+						<li>{{this}}</li>
+					{{/each}}
+				</ul>
+			{{/if}}
+		</div>
+		{{#if board}}
+		<div class="board">{{icon 'board'}} {{board}}</div>
 		{{/if}}
 	</div>
 {{/if}}
@@ -27,15 +38,13 @@
 	{{#if crypto_error}}
 		<div class="content text">
 			<div class="body">
-				<h1>Crypto error</h1>
+				<h1>{{t 'Crypto error'}}</h1>
 				<p>
-					There was a problem decrypting this note. Please contact
-					<a href="mailto:info@turtl.it">info@turtl.it</a> for
-					assistance.
+					{{t 'There was a problem decrypting this note. Please contact <a href="mailto:info@turtlapp.com">info@turtlapp.com</a> for assistance.'}}
 				</p>
 				{{#if error_data.boards.length}}
 					<p>
-						This note belongs to these boards:
+						{{t 'This note belongs to these boards:'}}
 					</p>
 					<ul>
 						{{#each error_data.boards}}
@@ -43,93 +52,50 @@
 						{{/each}}
 					</ul>
 				{{else}}
-					This note is not in any boards.
+					{{t 'This note is not in any boards.'}}
 				{{/if}}
-				<h2>Debug info</h2>
+				<h2>{{t 'Debug info'}}</h2>
 				<code>ID:&nbsp;{{note.id}}<br>Key:&nbsp;{{#if error_data.key}}{{error_data.key}}{{else}}No key found{{/if}}</code>
 			</div>
 		</div>
 	{{else}}{{#if empty}}
-		<p class="empty">(empty note)</p>
+		<p class="empty">{{t '(empty note)'}}</p>
 	{{else}}
 		<div class="content text">
 			{{#equal note.type 'password'}}
-				<h1 class="main-title password">
-					<a href="#">
-					{{icon 'lock'}}
-					{{#if note.title}}
-						{{{note.title}}}
-					{{else}}
-						Password
-					{{/if}}
+				<h1 dir="auto" class="main-title password">
+					<a href="#" rel="password">
+						{{icon 'lock'}}
+						{{#if note.title}}
+							{{note.title}}
+						{{else}}
+							Password
+						{{/if}}
 					</a>
 				</h1>
 				<div class="show-password">
 					<form class="standard-form">
 						{{#if note.username}}
-							<input type="text" name="username" value="{{note.username}}" readonly>
+							<input type="text" dir="auto" name="username" value="{{note.username}}" readonly>
 						{{/if}}
-						<input type="password" name="password" value="********" readonly>
+						<input type="password" dir="auto" name="password" value="********" readonly>
 					</form>
 				</div>
 			{{else}}
 				{{#if note.title}}
-					<h1 class="main-title">{{{note.title}}}</h1>
+					<h1 dir="auto" class="main-title">
+						{{#if note.url}}<a dir="auto" href="{{note.url}}" target="_blank">{{/if}}
+						{{note.title}}
+						{{#if note.url}}</a>{{/if}}
+					</h1>
 				{{/if}}
 			{{/equal}}
 			{{#if has_body}}
 				<div class="body">
-					{{{markdown note.text}}}
+					{{{note-body note.text}}}
 				</div>
 			{{/if}}
 		</div>
-		{{/if}}{{/if}}
+	{{/if}}{{/if}}
 </div>
-
-{{! {{#if show_info}}
-{{#if false}}
-	<div class="info-container">
-		<div class="preview">
-			<ul>
-				<li>{{icon 'board'}}{{note.boards.length}}</li>
-				<li>{{icon 'tag'}}{{note.tags.length}}</li>
-			</ul>
-
-			<div class="info">
-				{{!-- Note linking!
-				<form class="standard-form">
-					<p>Paste this into another note to link to this one</p>
-					<input type="text" readonly value="note::{{note.id}}">
-				</form>
-				--}}
-
-				{{#if have_boards}}
-					<div class="info-list clear">
-						{{#if boards.length}}
-							<ul>
-								<li>{{icon 'board'}}</li>
-								{{#each boards}}
-									<li>{{name}}</li>
-								{{/each}}
-							</ul>
-						{{/if}}
-					</div>
-				{{/if}}
-
-				{{! note that we don't use ul.tags here because it's really ugly next to
-					the note-boards container and we also don't need it to be tappable }}
-				{{#if note.tags.length}}
-					<div class="info-list clear">
-						<ul>
-							<li>{{icon 'tag'}}</li>
-							{{#each note.tags}}
-								<li>{{this}}</li>
-							{{/each}}
-						</ul>
-					</div>
-				{{/if}}
-			</div>
-		</div>
-	</div>
-{{/if}}
 

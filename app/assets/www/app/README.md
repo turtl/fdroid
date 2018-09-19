@@ -1,5 +1,7 @@
-[Turtl](https://turtl.it/)
+[Turtl](https://turtlapp.com/)
 ==========================
+
+_Opening an issue? See the [Turtl project tracker](https://github.com/turtl/project-tracker/issues)_
 
 This is the heart of Turtl!
 
@@ -8,12 +10,12 @@ contains Turtl's interfaces, logic, crypto, etc.
 
 ## Documentation
 
-If you're interested in how Turtl works, [check out the docs](https://turtl.it/docs).
+If you're interested in how Turtl works, [check out the docs](https://turtlapp.com/docs/).
 
 ## Building
 
-Turtl uses a makefile to generate itself. Here's a fw commands to get you started
-(this assumed you have Node.js/npm installed already):
+Turtl uses a makefile to generate itself. Here's a few commands to get you started
+(this assumes you have Node.js/npm installed already):
 
 ```bash
 mkdir turtl
@@ -25,6 +27,6 @@ make
 ```
 
 Running `make` here generates all the assets for the project and it's now ready
-to be run by any webserver (just make sure all requests are send to index.html,
-see the .htaccess file for reference).
+to be run by any webserver (just make sure all requests are sent to `index.html`,
+see the `.htaccess` file for reference).
 

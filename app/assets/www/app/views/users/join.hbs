@@ -1,50 +1,34 @@
-<input type="text" name="username" placeholder="Username (or email address)" tabindex="4" autocomplete="off" autocorrect="off" autocapitalize="none">
-<input type="password" name="password" placeholder="Passphrase" autocomplete="off" tabindex="5">
-<input type="password" name="confirm" placeholder="Confirm passphrase" autocomplete="off" tabindex="6">
-<div class="strength">
+<input id="inp_email" type="email" name="username" placeholder="{{t 'Email address'}}" tabindex="4" autocomplete="off" autocorrect="off" autocapitalize="none" autocorrect="off">
+<input id="inp_pass" type="password" name="password" placeholder="{{t 'Passphrase'}}" autocomplete="off" autocorrect="off" tabindex="5">
+<input id="inp_conf" type="password" name="confirm" placeholder="{{t 'Confirm passphrase'}}" autocomplete="off" autocorrect="off" tabindex="6">
+<div class="strength {{state.strength_class}}">
 	<div class="progress-bar">
-		<div class="inner">&nbsp;</div>
+		<div class="inner" style="width: {{state.strength_width}}%;">&nbsp;</div>
 	</div>
-	<p>Passphrase strength: <span class="status"></span></p>
+	<p>{{t 'Passphrase strength: '}}<span class="status">{{state.strength_text}}</span></p>
 </div>
 
-<!--
-{{#if enable_promo}}
-	{{#unless promo}}
-		<a class="open-promo" href="#open-promo">Have a promo code?</a>
-	{{/unless}}
-	<div class="promo {{#if promo}}open{{/if}}">
-		Promo code: <input type="text" name="promo" value="{{promo}}" placeholder="Promo code" tabindex="7">
-	</div>
-{{/if}}
--->
-
-{{#if show_autologin}}
-	<div class="autologin">
-		<label>
-			<input type="checkbox" name="autologin" value="1" {{#if autologin}}checked{{/if}}>
-			Stay logged in
-		</label>
-	</div>
-{{/if}}
+{{remember-me autologin}}
 
 <div class="buttons">
 	<div class="button join">
-		<input type="submit" class="button" value="Join">
+		<input type="submit" class="button" value="{{t 'Join'}}">
 	</div>
 	<p class="load">
 		{{svg 'loading'}}
 	</p>
 	<p>
-		<a href="/users/login">Login to an existing account</a>
+		<a href="/users/login">{{t 'Login to an existing account'}}</a>
 	</p>
 </div>
 
-<a class="open-settings" href="#settings">Advanced settings {{icon 'more'}}</a>
-<p class="settings">
-	<label for="inp_server">
-		Turtl server
-		<input type="text" name="server" value="{{server}}" placeholder="https://api.turtl.it/api">
-	</label>
-</p>
+<a class="open-settings {{#if state.settings}}active{{/if}}" href="#settings">{{t 'Advanced settings'}} {{icon 'more'}}</a>
+<div class="settings-container {{#if state.settings}}active{{/if}}">
+	<p class="settings">
+		<label>
+			{{t 'Turtl server'}}
+			<input type="text" name="server" value="{{state.endpoint}}" placeholder="https://api.turtlapp.com/v3">
+		</label>
+	</p>
+</div>
 

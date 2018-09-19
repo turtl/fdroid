@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="test/html; charset=utf-8">
 		<meta http-equiv="Content-Language" content="en">
-		<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap:; connect-src *; style-src 'self' 'unsafe-inline'; media-src *; img-src * blob: data:; object-src 'none' ">
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap:; connect-src *; style-src 'self' 'unsafe-inline'; media-src *; img-src * blob: data: android-webview-video-poster:; object-src 'none'; script-src 'self' data: gap:; frame-src *;">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 		<title>Turtl</title>
@@ -11,92 +11,92 @@
 		<link rel="shortcut icon" href="images/favicon.png" type="image/png">
 
 <base href="app/">
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/template.css">
-<link rel="stylesheet" href="css/general.css">
-<link rel="stylesheet" href="css/modules/actions.css">
-<link rel="stylesheet" href="css/modules/barfr.css">
-<link rel="stylesheet" href="css/modules/form.css">
-<link rel="stylesheet" href="css/modules/item-actions.css">
-<link rel="stylesheet" href="css/modules/modal.css">
-<link rel="stylesheet" href="css/modules/nav.css">
-<link rel="stylesheet" href="css/modules/search.css">
-<link rel="stylesheet" href="css/modules/sidebar.css">
-<link rel="stylesheet" href="css/site/boards.css">
-<link rel="stylesheet" href="css/site/feedback.css">
-<link rel="stylesheet" href="css/site/help.css">
-<link rel="stylesheet" href="css/site/notes.css">
-<link rel="stylesheet" href="css/site/personas.css">
-<link rel="stylesheet" href="css/site/settings.css">
-<link rel="stylesheet" href="css/site/sharing.css">
-<link rel="stylesheet" href="css/site/sync.css">
-<link rel="stylesheet" href="css/site/tags.css">
-<link rel="stylesheet" href="css/site/users.css">
+<link rel="stylesheet" href="build/css/vnd/reset.css">
+<link rel="stylesheet" href="build/css/fonts.css">
+<link rel="stylesheet" href="build/css/template.css">
+<link rel="stylesheet" href="build/css/general.css">
+<link rel="stylesheet" href="build/css/fonts.css">
+<link rel="stylesheet" href="build/css/katex.css">
+<link rel="stylesheet" href="build/css/modules/actions.css">
+<link rel="stylesheet" href="build/css/modules/barfr.css">
+<link rel="stylesheet" href="build/css/modules/form.css">
+<link rel="stylesheet" href="build/css/modules/item-actions.css">
+<link rel="stylesheet" href="build/css/modules/modal.css">
+<link rel="stylesheet" href="build/css/modules/search.css">
+<link rel="stylesheet" href="build/css/modules/sidebar.css">
+<link rel="stylesheet" href="build/css/site/boards.css">
+<link rel="stylesheet" href="build/css/site/export.css">
+<link rel="stylesheet" href="build/css/site/feedback.css">
+<link rel="stylesheet" href="build/css/site/help.css">
+<link rel="stylesheet" href="build/css/site/notes.css">
+<link rel="stylesheet" href="build/css/site/settings.css">
+<link rel="stylesheet" href="build/css/site/spaces.css">
+<link rel="stylesheet" href="build/css/site/tags.css">
+<link rel="stylesheet" href="build/css/site/users.css">
 
-<script src="../cordova.js"></script><script src="library/mootools-core-1.5.2.js"></script>
-<script src="library/mootools-more-1.5.1.js"></script>
-<script src="library/composer.js"></script>
-<script src="library/bluebird.js"></script>
-<script src="library/handlebars.runtime-v2.0.0.js"></script>
+<script src="../cordova.js"></script><script src="lib/vnd/mootools-core-1.5.2.js"></script>
+<script src="lib/vnd/mootools-more-1.5.1.js"></script>
+<script src="lib/vnd/composer.js"></script>
+<script src="lib/vnd/bluebird.js"></script>
+<script src="lib/vnd/History.mootools.js"></script>
+<script src="lib/vnd/autocomplete.js"></script>
+<script src="lib/vnd/barfr.js"></script>
+<script src="lib/vnd/fuzzy.js"></script>
+<script src="lib/vnd/hammer.js"></script>
+<script src="lib/vnd/handlebars.runtime-v4.0.11.js"></script>
+<script src="lib/vnd/i18next.js"></script>
+<script src="lib/vnd/katex.js"></script>
+<script src="lib/vnd/loglevel.js"></script>
+<script src="lib/vnd/lunr.js"></script>
+<script src="lib/vnd/markdown-it-katex.js"></script>
+<script src="lib/vnd/markdown-it-task-lists.js"></script>
+<script src="lib/vnd/markdown-it.js"></script>
+<script src="lib/vnd/mobile.js"></script>
+<script src="lib/vnd/mooMasonry.js"></script>
+<script src="lib/vnd/morphdom.js"></script>
+<script src="lib/vnd/sexhr.js"></script>
+<script src="lib/vnd/sodium.js"></script>
+<script src="lib/vnd/velocity.js"></script>
+<script src="lib/vnd/velocity.ui.js"></script>
 <script src="config/config.js"></script>
 <script src="config/auth.js"></script>
 <script src="config/constants.js"></script>
 <script src="config/routes.js"></script>
-<script src="library/_queue.js"></script>
-<script src="library/addon-adaptors/desktop.js"></script>
-<script src="library/autocomplete.js"></script>
-<script src="library/autosize.js"></script>
-<script src="library/backstate.js"></script>
-<script src="library/barfr.js"></script>
-<script src="library/crypto_queue.js"></script>
-<script src="library/db.js"></script>
-<script src="library/fastclick.js"></script>
-<script src="library/functions.js"></script>
-<script src="library/handlebars.helpers.js"></script>
-<script src="library/History.mootools.js"></script>
-<script src="library/hustle.js"></script>
-<script src="library/keyboard.js"></script>
-<script src="library/loglevel.js"></script>
-<script src="library/lunr.js"></script>
-<script src="library/marked.js"></script>
-<script src="library/mobile.js"></script>
-<script src="library/modal.js"></script>
-<script src="library/mooMasonry.js"></script>
-<script src="library/morphdom.js"></script>
-<script src="library/openpgp/openpgp.js"></script>
-<script src="library/overlay.js"></script>
-<script src="library/sexhr.js"></script>
-<script src="library/sjcl.js"></script>
-<script src="library/svg-icons.js"></script>
-<script src="library/tcrypt.js"></script>
-<script src="library/timer.js"></script>
-<script src="library/velocity.js"></script>
-<script src="library/velocity.ui.js"></script>
+<script src="lib/app/_functions.js"></script>
+<script src="lib/app/backstate.js"></script>
+<script src="lib/app/composer_sync.js"></script>
+<script src="lib/app/core-adaptors/_base.js"></script>
+<script src="lib/app/core-adaptors/websocket.js"></script>
+<script src="lib/app/handlebars.helpers.js"></script>
+<script src="lib/app/keyboard.js"></script>
+<script src="lib/app/modal.js"></script>
+<script src="lib/app/overlay.js"></script>
+<script src="lib/app/param_router.js"></script>
+<script src="lib/app/public_setting.js"></script>
+<script src="lib/app/remember-me/_base.js"></script>
+<script src="lib/app/remember-me/localstorage.js"></script>
+<script src="lib/app/timer.js"></script>
 <script src="controllers/0modules/action.js"></script>
 <script src="controllers/0modules/form.js"></script>
 <script src="controllers/0modules/header.js"></script>
 <script src="controllers/0modules/item-actions.js"></script>
 <script src="controllers/0modules/loading.js"></script>
-<script src="controllers/0modules/nav.js"></script>
 <script src="controllers/0modules/sidebar.js"></script>
-<script src="controllers/boards/delete.js"></script>
+<script src="controllers/0modules/action.js"></script>
+<script src="controllers/0modules/form.js"></script>
+<script src="controllers/0modules/header.js"></script>
+<script src="controllers/0modules/item-actions.js"></script>
+<script src="controllers/0modules/loading.js"></script>
+<script src="controllers/0modules/sidebar.js"></script>
 <script src="controllers/boards/edit.js"></script>
-<script src="controllers/boards/index.js"></script>
-<script src="controllers/boards/item.js"></script>
-<script src="controllers/boards/list.js"></script>
-<script src="controllers/boards/share/edit.js"></script>
-<script src="controllers/boards/share/index.js"></script>
-<script src="controllers/boards/share/invite.js"></script>
-<script src="controllers/boards/share/invite_email.js"></script>
-<script src="controllers/boards/share/invite_persona.js"></script>
-<script src="controllers/boards/share/item.js"></script>
-<script src="controllers/boards/share/list.js"></script>
+<script src="controllers/boards/move.js"></script>
+<script src="controllers/error/index.js"></script>
 <script src="controllers/feedback/index.js"></script>
 <script src="controllers/help/keyboard.js"></script>
 <script src="controllers/help/markdown.js"></script>
+<script src="controllers/invites/index.js"></script>
+<script src="controllers/invites/item.js"></script>
 <script src="controllers/notes/_note_base.js"></script>
-<script src="controllers/notes/edit/boards/index.js"></script>
-<script src="controllers/notes/edit/boards/list.js"></script>
 <script src="controllers/notes/edit/file.js"></script>
 <script src="controllers/notes/edit/index.js"></script>
 <script src="controllers/notes/edit/preview.js"></script>
@@ -108,56 +108,60 @@
 <script src="controllers/notes/search.js"></script>
 <script src="controllers/notes/view.js"></script>
 <script src="controllers/pages.js"></script>
-<script src="controllers/personas/edit.js"></script>
-<script src="controllers/personas/index.js"></script>
-<script src="controllers/personas/join.js"></script>
-<script src="controllers/personas/view.js"></script>
 <script src="controllers/settings/delete_account.js"></script>
+<script src="controllers/settings/export.js"></script>
 <script src="controllers/settings/index.js"></script>
+<script src="controllers/settings/logs.js"></script>
 <script src="controllers/settings/password.js"></script>
-<script src="controllers/sharing/boards/item.js"></script>
-<script src="controllers/sharing/boards/list.js"></script>
-<script src="controllers/sharing/index.js"></script>
-<script src="controllers/sharing/invites/item.js"></script>
-<script src="controllers/sharing/invites/list.js"></script>
-<script src="controllers/sync/index.js"></script>
+<script src="controllers/settings/sync/index.js"></script>
+<script src="controllers/settings/sync/item.js"></script>
+<script src="controllers/spaces/edit.js"></script>
+<script src="controllers/spaces/members/item.js"></script>
+<script src="controllers/spaces/members/list.js"></script>
+<script src="controllers/spaces/sharing/index.js"></script>
+<script src="controllers/spaces/sharing/send.js"></script>
 <script src="controllers/users/_base.js"></script>
 <script src="controllers/users/join.js"></script>
 <script src="controllers/users/login.js"></script>
+<script src="controllers/users/migrate.js"></script>
+<script src="controllers/users/must-login.js"></script>
 <script src="controllers/users/welcome.js"></script>
-<script src="models/_protected.js"></script>
 <script src="models/_sync.js"></script>
+<script src="models/app.js"></script>
 <script src="models/board.js"></script>
 <script src="models/feedback.js"></script>
 <script src="models/file.js"></script>
 <script src="models/invite.js"></script>
-<script src="models/keychain.js"></script>
+<script src="models/member.js"></script>
 <script src="models/note.js"></script>
-<script src="models/persona.js"></script>
 <script src="models/profile.js"></script>
 <script src="models/search.js"></script>
-<script src="models/setting.js"></script>
+<script src="models/space.js"></script>
+<script src="models/space_invite.js"></script>
 <script src="models/tag.js"></script>
 <script src="models/user.js"></script>
 <script src="handlers/boards.js"></script>
 <script src="handlers/feedback.js"></script>
+<script src="handlers/invites.js"></script>
 <script src="handlers/notes.js"></script>
-<script src="handlers/personas.js"></script>
 <script src="handlers/settings.js"></script>
-<script src="handlers/sharing.js"></script>
-<script src="handlers/sync.js"></script>
+<script src="handlers/spaces.js"></script>
 <script src="handlers/users.js"></script>
-<script src="turtl/api.js"></script>
-<script src="turtl/database.js"></script>
-<script src="turtl/setup.js"></script>
-<script src="turtl/sync.js"></script>
-<script src="library/templates.js"></script>
+<script src="build/lib/app/lib-permissions.js"></script>
+<script src="build/lib/app/locales.js"></script>
+<script src="build/lib/app/svg-icons.js"></script>
+<script src="build/lib/app/templates.js"></script>
 <script src="main.js"></script>
 <script src="../version.js"></script>
 <script src="../config.js"></script>
+<script src="../config-core.js"></script>
 <script src="../events.js"></script>
+<script src="../cacert.js"></script>
+<script src="../openssl-authority.js"></script>
 <script src="../download.js"></script>
-<script src="../autologin.js"></script>
+<script src="../core-adapter.js"></script>
+<script src="../core-logs.js"></script>
+<script src="../remember-me-adapter.js"></script>
 
 
 	</head>
@@ -167,7 +171,6 @@
 			<div id="sidebar"></div>
 
 			<div id="app">
-				<div id="nav"></div>
 				<div id="main"></div>
 			</div>
 		</div>

@@ -1,14 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.lyonbros.turtl" version="0.6.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <preference name="loglevel" value="DEBUG" />
-    <feature name="Camera">
-        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
-    </feature>
-    <preference name="webView" value="org.crosswalk.engine.XWalkWebViewEngine" />
-    <preference default="15+" name="xwalkVersion" />
-    <preference default="--disable-pull-to-refresh-effect" name="xwalkCommandLine" />
-    <preference default="embedded" name="xwalkMode" />
-    <preference default="true" name="xwalkMultipleApk" />
+<widget id="com.lyonbros.turtl" version="0.7.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="Whitelist">
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
@@ -17,20 +8,22 @@
         <param name="android-package" value="org.apache.cordova.file.FileUtils" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="BackbuttonPlugin">
-        <param name="android-package" value="com.badrit.Backbutton.BackbuttonPlugin" />
-    </feature>
-    <feature name="SecureCache">
-        <param name="android-package" value="com.lyonbros.securecache.SecureCachePlugin" />
+    <allow-navigation href="cdvfile:*" />
+    <feature name="TurtlStorePlugin">
+        <param name="android-package" value="com.lyonbros.turtlstore.TurtlStorePlugin" />
         <param name="onload" value="true" />
     </feature>
-    <preference name="AndroidPersistentFileLocation" value="Internal" />
-    <allow-intent href="market:*" />
-    <preference name="android-minSdkVersion" value="16" />
-    <icon src="www/app/images/favicon.128.png" />
+    <feature name="TurtlCorePlugin">
+        <param name="android-package" value="com.lyonbros.turtlcore.TurtlCorePlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>Turtl</name>
-    <description>The safe way to remember everything.</description>
-    <author email="info@turtl.it" href="https://turtl.it">Lyon Bros. Enterprises, LLC</author>
+    <description>
+		A privacy-focused note-taking application.
+    </description>
+    <author email="andrew@turtlapp.com" href="https://turtlapp.com">
+		Andrew Lyon
+    </author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -39,9 +32,9 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <preference name="xwalkVersion" value="15+" />
-    <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
-    <preference name="xwalkMode" value="embedded" />
-    <preference name="xwalkMultipleApk" value="true" />
-    <preference name="xwalkSupportMultipleWindows" value="true" />
+    <allow-intent href="market:*" />
+    <icon src="www/app/images/favicon.128.png" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="android-minSdkVersion" value="23" />
+    <preference name="android-targetSdkVersion" value="26" />
 </widget>
