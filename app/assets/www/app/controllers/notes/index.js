@@ -10,6 +10,7 @@ var NotesIndexController = Composer.Controller.extend({
 		space: null,
 		board: null,
 		tags: [],
+		exclude_tags: [],
 		sort: NOTE_DEFAULT_SORT,
 		page: 1,
 		per_page: 100
@@ -146,11 +147,14 @@ var NotesIndexController = Composer.Controller.extend({
 			this.saved_tags = tags;
 		}.bind(this));
 
-		this.bind('search-reset', function() {
-			this.search.sort = NOTE_DEFAULT_SORT;
-			this.search.text = '';
-			this.search.tags = [];
-			this.search.colors = [];
+		this.bind('search-reset', function(options) {
+			options || (options = {});
+			var searchcon = this.sub('search');
+			if(searchcon) {
+				searchcon.clear_search(this.search);
+				if(!options.from_search) searchcon.reset_search();
+			}
+
 			this.trigger('run-search');
 			var list = this.sub('list');
 			if(list) list.trigger('search-reset');
@@ -202,10 +206,8 @@ var NotesIndexController = Composer.Controller.extend({
 
 	open_search: function()
 	{
-		var tags = this.sub('list').tags;
 		this.sub('search', function() {
 			var search = new NotesSearchController({
-				tags: tags,
 				search: this.search
 			});
 			return search;

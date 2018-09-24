@@ -21,9 +21,6 @@ var NotesListController = Composer.ListController.extend({
 	masonry: null,
 	masonry_timer: null,
 
-	// ALL tags that appear in thie board
-	tags: null,
-
 	// filled in from index controller
 	search: {},
 	total: 0,
@@ -54,22 +51,11 @@ var NotesListController = Composer.ListController.extend({
 		}.bind(this));
 		this.bind('release', function() { this.masonry_timer.unbind(); }.bind(this));
 
-		var resize_timer = new Timer(10);
-		var resize_reset = function() {
-			resize_timer.reset();
-		}.bind(this);
-		window.addEvent('resize', resize_reset);
-		this.bind('release', function() {
-			window.removeEvent('resize', resize_reset);
-			resize_timer.unbind();
-		});
-		resize_timer.bind('fired', this.update_masonry.bind(this));
-
 		this.bind_once('xdom:render', function() {
 			// run an initial search
 			this.do_search()
 				.bind(this)
-				.spread(function(searched_notes, tags, _total) {
+				.spread(function(searched_notes, _tags, _total) {
 					var ids = searched_notes.map(function(n) { return n.id(); })
 
 					// clear the "initial" state
@@ -78,7 +64,6 @@ var NotesListController = Composer.ListController.extend({
 					// curtail rendering duplicate result sets
 					this._last_search = JSON.stringify(ids);
 
-					this.tags = tags;
 					this.bind('search', function(options) {
 						options || (options = {});
 						if(options.reset_pages) this.search.page = 1;
@@ -93,7 +78,7 @@ var NotesListController = Composer.ListController.extend({
 					this.with_bind(turtl.events, ['sync:update:note'], function() {
 						search_timer.stop();
 						this.trigger('search', {upsert: true});
-					}.bind(this))
+					}.bind(this));
 					this.track(notes, function(model, options) {
 						options || (options = {});
 						// since the search model only deals with IDs, here we pull
@@ -169,10 +154,9 @@ var NotesListController = Composer.ListController.extend({
 			case 'masonry':
 				this.masonry_timer.reset();
 				break;
-			case 'column':
-			case 'list':
+			default:
 				this.masonry_timer.stop();
-				if(this.masonry) this.masonry.detach();
+				if(this.masonry) this.masonry.destroy();
 				this.masonry = null;
 				break;
 		}
@@ -180,14 +164,19 @@ var NotesListController = Composer.ListController.extend({
 
 	update_masonry: function()
 	{
-		if(!this.viewstate.mode.match(/^masonry/)) return;
+		if(this.viewstate.mode != 'masonry') return;
 
-		if(this.masonry) this.masonry.detach();
-		this.masonry = this.note_list.masonry({
-			singleMode: true,
-			resizeable: true,
-			itemSelector: '> li.note'
-		});
+		if(!this.masonry) {
+			this.masonry = new Masonry(this.note_list, {
+				itemSelector: '.note.item',
+				columnWidth: '.note.item',
+				percentPosition: true,
+				transitionDuration: 0,
+			});
+			return;
+		}
+		this.masonry.reloadItems();
+		this.masonry.layout();
 	},
 
 	paginate: function(e)

@@ -1,8 +1,8 @@
 var NotesSearchController = Composer.Controller.extend({
+	xdom: true,
 	class_name: 'search-filters',
 
 	elements: {
-		'.tag-container': 'tag_container',
 		'ul.tags': 'el_tags',
 		'ul.colors': 'el_colors',
 		'input[name=text]': 'inp_text'
@@ -14,6 +14,7 @@ var NotesSearchController = Composer.Controller.extend({
 		'input input[name=text]': 'text_search',
 		'keydown input[name=text]': 'special_key',
 		'click ul.tags li': 'toggle_tag',
+		'press ul.tags li': 'negate_tag_press',
 		'click ul.colors li': 'toggle_color',
 		'submit form': 'submit'
 	},
@@ -21,17 +22,33 @@ var NotesSearchController = Composer.Controller.extend({
 	modal: null,
 	tags: [],
 	search: {},
+	viewstate: {
+		show_all_tags: false,
+		available_tags: [],
+	},
+
+	show_max_tags: 30,
 
 	init: function()
 	{
 		var titlefn = function(num) { return i18next.t('Search notes ({{num}})', {num: num}); };
 
-		this.tags = clone(this.tags);
-		this.tags.sort(function(a, b) {
-			var sort = b.count - a.count;
-			if(sort != 0) return sort;
-			return a.name.localeCompare(b.name);
-		});
+		var update_initial_tags = function() {
+			var search = clone(this.search || {});
+			this.clear_search(search);
+			turtl.search.find_tags(search)
+				.bind(this)
+				.then(function(tags) {
+					this.tags = tags;
+					this.tags.sort(function(a, b) {
+						var sort = b.count - a.count;
+						if(sort != 0) return sort;
+						return a.name.localeCompare(b.name);
+					});
+					this.render();
+				});
+		}.bind(this);
+		update_initial_tags();
 
 		this.modal = new TurtlModal({
 			class_name: 'turtl-modal search',
@@ -42,7 +59,19 @@ var NotesSearchController = Composer.Controller.extend({
 				{name: 'reset', icon: 'everything', title: i18next.t('Reset search')}
 			]
 		});
-		this.render();
+		this.render()
+			.bind(this)
+			.then(function() {
+				setTimeout(function() { this.inp_text.select(); }.bind(this), 50);
+
+				var modal_el = Composer.find_parent('.turtl-modal', this.el);
+				var hammer = new Hammer.Manager(modal_el || this.el, {domEvents: true, touchAction: 'pan-y'});
+				hammer.add(new Hammer.Swipe());
+				hammer.on('swiperight', this.trigger.bind(this, 'close'));
+				this.bind('release', function() {
+					hammer.destroy();
+				});
+			});
 
 		var close = this.modal.close.bind(this.modal);
 		this.modal.open(this.el);
@@ -55,8 +84,7 @@ var NotesSearchController = Composer.Controller.extend({
 		});
 
 		this.with_bind(this.modal, 'header:fire-action', function(action) {
-			switch(action)
-			{
+			switch(action) {
 				case 'reset':
 					this.reset_search();
 					break;
@@ -73,11 +101,22 @@ var NotesSearchController = Composer.Controller.extend({
 			if(timer.timeout) this.trigger('do-search');
 		});
 
-		var last_tags = null;
+		// grab the updated tag list when notes update
+		this.with_bind(turtl.events, ['sync:update:note'], function(data) {
+			// don't grab the tags unless the changed note is part of this
+			// search
+			if(this.search.space_id && search.space_id != data.space_id) {
+				return;
+			}
+			if(this.search.board_id && search.board_id != data.board_id) {
+				return;
+			}
+			update_initial_tags();
+		}.bind(this));
+
 		this.bind('update-available-tags', function(tags) {
-			if(JSON.stringify(tags) == last_tags) return;
-			last_tags = JSON.stringify(tags);
-			this.render_tags({available_tags: tags});
+			this.viewstate.available_tags = tags;
+			this.render();
 		});
 		this.with_bind(turtl.search, 'search-tags', this.trigger.bind(this, 'update-available-tags'));
 	},
@@ -94,64 +133,79 @@ var NotesSearchController = Composer.Controller.extend({
 			return {name: color, selected: selected, id: i};
 		}.bind(this));
 
-		this.html(view.render('notes/search/index', {
+		var tags = this.process_tags(this.tags);
+
+		return this.html(view.render('notes/search/index', {
 			sort: sort[0],
 			dir: sort[1],
 			text: this.search.text,
-			colors: colors
-		}));
-
-		this.render_tags(options);
-
-		setTimeout(function() { this.inp_text.select(); }.bind(this), 50);
+			colors: colors,
+			tags: tags,
+			state: this.viewstate,
+			show_show_all_tags: !this.viewstate.show_all_tags && this.tags.length > this.show_max_tags,
+		})).bind(this)
+			.then(function() {
+				if(this._hammer_time) {
+					this._hammer_time.destroy();
+				}
+				if(this.el_tags) {
+					var hammer = new Hammer.Manager(this.el_tags, {domEvents: true});
+					hammer.add(new Hammer.Press({time: 500}));
+					hammer.on('press', function(e) {
+						var tagli = Composer.find_parent('ul.tags li');
+						if(!tagli) return;
+						Composer.fire_event(tagli, 'press');
+					});
+					this._hammer_time = hammer;
+					this.bind('release', function() {
+						hammer.destroy();
+					}, 'search:render:hammer:release:'+this.cid());
+				}
+			});
 	},
 
-	render_tags: function(options)
-	{
-		options || (options = {});
-
-		var available_tags = options.available_tags;
-		var avail_idx = available_tags && make_index(available_tags, 'name');
-		var tags = this.tags;
-		var selected = this.search.tags;
-		var sel_idx = make_index(selected, null);
-
-		var show_all = this.show_all;
-		var max_show = 30;
-
-		tags.forEach(function(tag) {
-			if(sel_idx[tag.name])
-			{
-				tag.selected = true;
-			}
-			else
-			{
-				tag.selected = false;
-			}
-
-			if(avail_idx)
-			{
+	process_tags: function(tags) {
+		tags = clone(tags);
+		var available_tags = this.viewstate.available_tags || [];
+		if(available_tags.length == 0 && this.search.tags.length == 0) {
+			available_tags = tags;
+		}
+		var avail_idx = make_index(available_tags || [], 'name');
+		var sel_idx = make_index(this.search.tags, null);
+		var exc_idx = make_index(this.search.exclude_tags, null);
+		return tags
+			.map(function(tag) {
+				tag.selected = !!sel_idx[tag.name];
+				tag.negated = !!exc_idx[tag.name];
 				tag.available = !!avail_idx[tag.name];
-			}
-			else
-			{
-				tag.available = true;
-			}
-		});
-
-		var content = view.render('notes/search/tags', {
-			tags: tags.slice(0, show_all ? undefined : max_show),
-			show_show_all: (tags.length > max_show && !show_all),
-		});
-		this.tag_container.set('html', content);
+				return tag;
+			})
+			.slice(0, this.viewstate.show_all_tags ? undefined : this.show_max_tags);
 	},
 
 	reset_search: function(e)
 	{
 		if(e) e.stop();
-		this.trigger('search-reset');
+		this.trigger('search-reset', {from_search: true});
 		this.trigger('do-search');
-		this.render();
+		this.inp_text.set('value', '');
+		this.render()
+			.bind(this)
+			.then(function() {
+				if(get_platform() == 'mobile') return;
+				this.inp_text.focus();
+			});
+	},
+
+	clear_search: function(searchobj, options) {
+		options || (options = {});
+		searchobj.sort = NOTE_DEFAULT_SORT;
+		searchobj.text = '';
+		searchobj.tags = [];
+		searchobj.exclude_tags = [];
+		searchobj.colors = [];
+		if(options.clear_page) searchobj.page = 1;
+		return searchobj;
 	},
 
 	sort: function(e)
@@ -179,7 +233,7 @@ var NotesSearchController = Composer.Controller.extend({
 	show_all_tags: function(e)
 	{
 		if(e) e.stop();
-		this.show_all = true;
+		this.viewstate.show_all_tags = true;
 		this.render();
 	},
 
@@ -192,6 +246,7 @@ var NotesSearchController = Composer.Controller.extend({
 		this.trigger('search-mod');
 	},
 
+	// it plays a little melody
 	special_key: function(e)
 	{
 		if(!e || e.key != 'esc') return;
@@ -199,26 +254,58 @@ var NotesSearchController = Composer.Controller.extend({
 		this.trigger('close');
 	},
 
-	toggle_tag: function(e)
-	{
-		if(e) e.stop();
-		var li = Composer.find_parent('li', e.target);
-		if(!li) return;
-		var name = li.getElement('span').get('html').clean();
-		if(!this.search.tags) this.search.tags = [];
+	get_tagname: function(e) {
+	},
 
-		if(this.search.tags.contains(name))
-		{
-			this.search.tags.erase(name);
-		}
-		else
-		{
-			this.search.tags.push(name);
+	do_toggle_tag: function(e, options) {
+		options || (options = {});
+
+		var li = Composer.find_parent('li', e.target);
+		if(!li) return true;
+		var name = decode_entities(li.getElement('span').get('html').clean());
+
+		if(options.negate) {
+			if(this.search.exclude_tags.contains(name)) {
+				this.search.exclude_tags.erase(name);
+			} else {
+				this.search.tags.erase(name);
+				this.search.exclude_tags.push(name);
+			}
+		} else {
+			if(this.search.tags.contains(name)) {
+				this.search.tags.erase(name);
+			} else if(this.search.exclude_tags.contains(name)) {
+				this.search.exclude_tags.erase(name);
+			} else {
+				this.search.tags.push(name);
+			}
 		}
 
 		this.render();
 		this.trigger('do-search');
 		this.trigger('search-mod');
+	},
+
+	toggle_tag: function(e) {
+		// hammerjs hack
+		if(this._cancel_next_click) {
+			this._cancel_next_click = false;
+			return;
+		}
+		if(!e) return;
+		e.stop();
+		var options = {};
+		if(e.control || e.meta) {
+			options.negate = true;
+		}
+		this.do_toggle_tag(e, options);
+	},
+
+	negate_tag_press: function(e) {
+		if(!e) return;
+		e.stop();
+		this.do_toggle_tag(e, {negate: true});
+		this._cancel_next_click = true;
 	},
 
 	toggle_color: function(e)
