@@ -1,0 +1,51 @@
+.fixed-fix {
+  -webkit-transform: translateZ(0);
+}
+/**
+ *	Barfer.js - Mootools notifications library
+ */
+.barfr {
+  position: fixed;
+  bottom: 36px;
+  left: 50%;
+  z-index: 9001;
+  width: 280px;
+  margin-left: -140px;
+}
+.barfr ul {
+  padding: 0;
+}
+.barfr ul > div {
+  padding: 0 8px 8px 8px;
+}
+.barfr ul li {
+  display: block;
+  cursor: pointer;
+  margin: 0 0 8px 0;
+  padding: 13px;
+  color: #fff;
+  font-size: 1.3em;
+  line-height: 1.4em;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 2px rgba(20, 20, 20, 0.2);
+}
+.barfr ul li em {
+  font-style: italic;
+}
+.barfr ul li:last-child {
+  margin-bottom: 0;
+}
+.barfr ul li h2 {
+  color: white;
+  font-size: ;
+  margin-bottom: 10px;
+}
+.barfr ul li a {
+  color: white;
+  border-bottom: 1px dotted white;
+}
+.barfr ul li a.close {
+  display: none;
+}
+@static : ''../..'';

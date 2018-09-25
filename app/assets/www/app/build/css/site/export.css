@@ -1,0 +1,71 @@
+.fixed-fix {
+  -webkit-transform: translateZ(0);
+}
+.export-page h1 {
+  margin: 0 0 4px 0;
+  text-align: center;
+}
+.export-page h3 {
+  text-align: center;
+}
+.export-page section.export,
+.export-page section.import {
+  margin: 0 0 16px 0;
+  padding: 10px;
+  text-align: center;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(20, 20, 20, 0.2);
+}
+.export-page section.export .type,
+.export-page section.import .type {
+  padding: 8px;
+}
+.export-page section.export input[type=file],
+.export-page section.import input[type=file] {
+  max-width: 400px;
+  margin: 0 auto 8px auto;
+  padding: 0 0 4px 0;
+}
+.export-page section.export .buttons,
+.export-page section.import .buttons {
+  margin: 0 0 8px 0;
+}
+.export-page section.export p:not(.load),
+.export-page section.import p:not(.load) {
+  margin: 0;
+  padding: 0;
+}
+.export-page .import .action {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: start;
+      align-items: flex-start;
+  width: 70%;
+  margin: 0 auto 16px auto;
+}
+.export-page .import .action label {
+  display: block;
+}
+.export-page p.load {
+  display: inline-block;
+  visibility: hidden;
+  width: 0;
+  margin: 0 0 0 6px;
+  padding: 0 0 0 0;
+  vertical-align: middle;
+  overflow: visible;
+}
+.export-page p.load.active {
+  visibility: visible;
+}
+.export-page p.load svg {
+  width: 24px;
+  height: 24px;
+}
+.export-page p.load svg path {
+  fill: #65a5ee;
+}
+@static : ''../..'';

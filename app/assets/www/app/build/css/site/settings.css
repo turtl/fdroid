@@ -1,0 +1,166 @@
+.fixed-fix {
+  -webkit-transform: translateZ(0);
+}
+.settings > ul.item-list {
+  margin-bottom: 16px;
+}
+.settings > ul.item-list > li {
+  padding: 0;
+}
+.settings > ul.item-list > li a {
+  display: block;
+  padding: 16px 9px;
+  font-size: 17px;
+  color: #444;
+}
+.settings > ul.item-list > li a icon {
+  float: right;
+  margin: 2px 0 0 0;
+  color: #444;
+}
+.settings > ul.item-list > li a icon.next {
+  transform: rotate(180deg);
+}
+.settings > .info {
+  padding: 8px;
+  text-align: center;
+  font-size: 15px;
+}
+.settings > .info em {
+  color: #1870d5;
+}
+.settings .connection,
+.settings-sync .connection {
+  padding: 16px 0;
+  text-align: center;
+}
+.settings .connection icon,
+.settings-sync .connection icon {
+  margin: 0;
+  font-size: 24px;
+  color: #bbb;
+}
+.settings .connection span,
+.settings-sync .connection span {
+  display: inline;
+  padding: 12px 0;
+  font-size: 15px;
+  color: #888;
+}
+.settings .connection span.connected,
+.settings-sync .connection span.connected {
+  display: none;
+}
+.settings .connection.connected icon,
+.settings-sync .connection.connected icon {
+  color: #65a5ee;
+}
+.settings .connection.connected span.disconnected,
+.settings-sync .connection.connected span.disconnected {
+  display: none;
+}
+.settings .connection.connected span.connected,
+.settings-sync .connection.connected span.connected {
+  display: inline;
+}
+.settings-password form.standard-form {
+  padding-bottom: 16px;
+}
+.settings-password form.standard-form.bare {
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+.settings-password .note {
+  padding-bottom: 0;
+}
+.settings-password .section {
+  margin: 0 0 24px 0;
+}
+.settings-password .section h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+}
+.settings-delete-account form.standard-form {
+  padding-bottom: 32px;
+}
+.settings-sync .header {
+  margin-bottom: 16px;
+}
+.settings-sync .header .connection {
+  padding: 0 0 0 16px;
+}
+.settings-sync .header h2 {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  margin-bottom: 0;
+}
+.settings-sync .header h2,
+.settings-sync .header p {
+  padding: 16px;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(20, 20, 20, 0.2);
+}
+.settings-sync .item-list p {
+  padding: 0;
+}
+.settings-sync .item-list > li {
+  border-left: 3px solid #83b362;
+}
+.settings-sync .item-list > li.frozen {
+  border-left: 3px solid #e85c5c;
+}
+.settings-sync .item-list > li.blocked {
+  border-left: 3px solid #bbb;
+}
+.settings-sync .item-list > li .sync-item {
+  padding-bottom: 3px;
+}
+.settings-sync .item-list > li .sync-item div.item-actions > a {
+  width: 16px;
+  height: 48px;
+  margin: -6px -9px 0 0;
+  padding: 0 9px 0 16px;
+  line-height: 60px;
+}
+.settings-sync .item-list > li .sync-item small {
+  display: inline-block;
+  margin: 0 0 0 4px;
+  font-size: 0.8em;
+  color: #888;
+}
+.settings-sync .item-list > li .sync-item .ready {
+  color: #83b362;
+}
+.settings-sync .item-list > li .sync-item .blocked {
+  color: #888;
+}
+.settings-sync .item-list > li .sync-item .frozen {
+  padding-bottom: 6px;
+}
+.settings-sync .item-list > li .sync-item .sync-error {
+  padding: 6px;
+  background: #fcebeb;
+}
+.settings-logs {
+  text-align: center;
+}
+.settings-logs textarea {
+  width: 96%;
+  height: 500px;
+  max-height: 70vh;
+  margin: 0 auto;
+  padding: 5px 1%;
+  white-space: pre;
+  overflow: auto;
+  text-align: left;
+  color: #fff;
+  background: #000;
+}
+@static : ''../..'';

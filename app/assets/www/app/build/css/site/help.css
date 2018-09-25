@@ -1,0 +1,43 @@
+.fixed-fix {
+  -webkit-transform: translateZ(0);
+}
+.help .shortcuts {
+  margin: 16px 0;
+}
+.help .shortcuts kbd {
+  white-space: nowrap;
+}
+.markdown-tutorial,
+.load-error {
+  padding: 16px;
+}
+.markdown-tutorial > ul {
+  margin: 0 0 32px 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+}
+.markdown-tutorial > ul > li {
+  border-bottom: 1px solid #eee;
+}
+.markdown-tutorial > ul > li > div {
+  display: inline-block;
+  width: 48%;
+  padding: 12px 0 12px 2%;
+  vertical-align: middle;
+  white-space: normal;
+  word-wrap: break-word;
+}
+.markdown-tutorial > ul > li > div:first-child {
+  padding-left: 0;
+  padding-right: 2%;
+  font-family: 'Noto Mono', monospace;
+}
+.markdown-tutorial > ul > li > div space {
+  font-size: 0;
+  line-height: 0;
+}
+.load-error pre {
+  overflow-x: auto;
+}
+@static : ''../..'';

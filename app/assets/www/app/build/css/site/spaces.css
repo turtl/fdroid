@@ -1,0 +1,188 @@
+.fixed-fix {
+  -webkit-transform: translateZ(0);
+}
+.spaces-edit .delete,
+.spaces-edit .share {
+  margin: 32px 0 0 0;
+}
+.spaces-edit .delete p:last-child,
+.spaces-edit .share p:last-child {
+  padding: 0;
+  margin: 0;
+}
+.spaces-edit .delete .last,
+.spaces-edit .share .last,
+.spaces-edit .delete a,
+.spaces-edit .share a {
+  display: block;
+  padding: 8px;
+  font-size: 14px;
+  text-align: center;
+  background: #f5f5f5;
+}
+.spaces-sharing-modal {
+  background: #ededed;
+}
+.spaces-sharing {
+  padding: 16px 0;
+}
+.spaces-sharing p.empty {
+  display: none;
+}
+.spaces-sharing .is-empty p.empty {
+  display: block;
+}
+.spaces-sharing .is-empty .item-list {
+  display: none;
+}
+.spaces-sharing .memlist {
+  padding: 0 8px;
+}
+.spaces-sharing .memlist h3 {
+  font-size: 1.6em;
+  margin: 0 0 16px 0;
+  color: #444;
+}
+.spaces-sharing .memlist.invites {
+  display: none;
+}
+.spaces-sharing .memlist.invites.has-perm {
+  display: block;
+}
+.spaces-sharing .item-list {
+  margin-bottom: 32px;
+}
+.spaces-sharing .item-list li h2 {
+  font-size: 14px;
+  max-width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.spaces-sharing .item-list li p {
+  margin: 0;
+  padding-bottom: 3px;
+}
+.spaces-sharing .item-list li p em {
+  color: #65a5ee;
+}
+.spaces-sharing .item-list > li {
+  padding: 6px 9px;
+}
+.spaces-sharing .item-list > li div.item-actions > a {
+  width: 16px;
+  height: 56px;
+  margin: -6px -9px 0 0;
+  padding: 0 9px 0 16px;
+  line-height: 60px;
+}
+.spaces-sharing .item-list > li ul.item-list {
+  width: auto;
+  margin: 8px 0 0 0;
+  padding: 0 0 0 9px;
+  border-top: 1px solid #eee;
+}
+.spaces-sharing .item-list > li ul.item-list li {
+  padding-right: 0;
+}
+.spaces-sharing .item-list > li small {
+  font-size: 11px;
+}
+.spaces-sharing .item-list > li select {
+  margin-right: 6px;
+}
+.spaces-sharing .item-list > li:last-child {
+  border-bottom: 0;
+}
+.spaces-sharing .item-list > li.shared-with-me {
+  background: #ffe;
+}
+.spaces-invite .email-note {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s;
+}
+.spaces-invite .email-note.open {
+  max-height: 83px;
+}
+.spaces-invite .email-note p {
+  padding: 8px;
+  margin: 0;
+  color: inherit;
+  background: #ededed;
+}
+.spaces-invite p {
+  font-size: 14px;
+  color: #888;
+  line-height: 1.2em;
+}
+.spaces-invite select.role {
+  font-size: 14px;
+}
+.invite-list {
+  padding: 16px 0;
+}
+.invite-list p.empty {
+  display: none;
+}
+.invite-list.is-empty p.empty {
+  display: block;
+}
+.invite-list.is-empty .item-list {
+  display: none;
+}
+.invite-list .item-list > li {
+  padding: 6px 9px;
+}
+.invite-list .item-list > li.disconnected .invite-actions {
+  display: none;
+}
+.invite-list .item-list > li .invite-data div.item-actions > a {
+  width: 16px;
+  height: 48px;
+  margin: -6px -9px 0 0;
+  padding: 0 9px 0 16px;
+  line-height: 60px;
+}
+.invite-list .item-list > li .invite-data h2 {
+  font-size: 14px;
+  max-width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.invite-list .item-list > li .invite-data h2 icon {
+  font-size: 13px;
+  opacity: 0.7;
+}
+.invite-list .item-list > li .invite-data p {
+  margin: 0;
+  padding-bottom: 3px;
+}
+.invite-list .item-list > li .unseal {
+  overflow: hidden;
+  width: 100%;
+  max-height: 0;
+  transition: max-height 0.3s;
+}
+.invite-list .item-list > li .unseal.open {
+  max-height: 153px;
+}
+.invite-list .item-list > li .unseal .confirmation {
+  font-size: 14px;
+  margin: 0;
+  padding: 9px;
+  background: #ededed;
+}
+.invite-list .item-list > li .unseal form {
+  padding: 9px;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: #ededed;
+}
+.invite-list .item-list > li .unseal form p.form-note {
+  margin: 0;
+  padding-top: 0;
+}
+@static : ''../..'';

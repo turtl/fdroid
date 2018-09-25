@@ -1,0 +1,140 @@
+.fixed-fix {
+  -webkit-transform: translateZ(0);
+}
+.form-uncard.interface {
+  width: auto;
+}
+.form-uncard form.standard-form {
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+form.standard-form {
+  padding: 16px 4% 61px 4%;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(20, 20, 20, 0.2);
+}
+@media only screen and (min-width: 800px) {
+  form.standard-form {
+    padding: 16px 16px 61px 16px;
+  }
+}
+form.standard-form input[type=text],
+form.standard-form input[type=password],
+form.standard-form input[type=email],
+form.standard-form div.editable,
+form.standard-form select,
+form.standard-form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 0 12px 0;
+  padding: 9px 12px;
+  font-size: 16px;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #bbb;
+  border-radius: 0;
+  transition: border 0.3s;
+}
+form.standard-form input[type=text]:focus,
+form.standard-form input[type=password]:focus,
+form.standard-form input[type=email]:focus,
+form.standard-form div.editable:focus,
+form.standard-form select:focus,
+form.standard-form textarea:focus {
+  border-bottom: 1px solid #65a5ee;
+}
+form.standard-form input[type=text].error,
+form.standard-form input[type=password].error,
+form.standard-form input[type=email].error,
+form.standard-form div.editable.error,
+form.standard-form select.error,
+form.standard-form textarea.error {
+  border-bottom-color: #e85c5c;
+}
+form.standard-form input[type=text][disabled],
+form.standard-form input[type=password][disabled],
+form.standard-form input[type=email][disabled],
+form.standard-form div.editable[disabled],
+form.standard-form select[disabled],
+form.standard-form textarea[disabled] {
+  color: #888;
+  background: #f5f5f5;
+}
+form.standard-form div.editable .placeholder {
+  color: #888;
+}
+form.standard-form .button-row {
+  position: fixed;
+  -webkit-transform: translateZ(0);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: right;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+form.standard-form .button-row ul {
+  float: left;
+  list-style: none;
+}
+form.standard-form .button-row ul li a {
+  display: inline-block;
+  padding: 7px 6px;
+}
+form.standard-form .button-row ul li icon {
+  line-height: 1em;
+  font-size: 28px;
+  color: #444;
+}
+form.standard-form .button-row .desc {
+  float: left;
+  width: 32%;
+  margin: 0 0 0 2px;
+  padding: 16px 0 0 0;
+  line-height: 1.1em;
+  font-size: 14px;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+form.standard-form .button-row .button {
+  position: relative;
+  text-align: center;
+  line-height: 1em;
+  background: none;
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+}
+form.standard-form .button-row .button span,
+form.standard-form .button-row .button input {
+  display: inline;
+  cursor: pointer;
+  padding-top: 18px;
+  padding-bottom: 16px;
+}
+form.standard-form .button-row .button:after {
+  content: " ";
+  position: absolute;
+  top: 6px;
+  right: 4px;
+  width: 12px;
+  height: 12px;
+  background: #e85c5c;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(20, 20, 20, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+form.standard-form .button-row .button.highlight:after {
+  opacity: 1;
+}
+form.standard-form .form-note {
+  font-size: 13px !important;
+  color: #888;
+  padding: 8px;
+}
+@static : ''../..'';

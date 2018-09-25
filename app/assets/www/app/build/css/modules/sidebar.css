@@ -1,0 +1,272 @@
+.fixed-fix {
+  -webkit-transform: translateZ(0);
+}
+#sidebar {
+  position: fixed;
+  z-index: 33;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  transition: left 0.3s;
+}
+#sidebar > .overlay {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 0.3s;
+}
+#sidebar > .overlay.show {
+  opacity: 1;
+  cursor: pointer;
+}
+#sidebar > .inner {
+  position: absolute;
+  z-index: 11;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 90%;
+  overflow-y: auto;
+  box-shadow: 0 2px 4px 2px rgba(20, 20, 20, 0.2);
+  background: #202321;
+}
+#sidebar > .inner {
+  padding-top: 44px;
+}
+#sidebar > .inner.spaces-open .boards.gutter {
+  display: none;
+}
+#sidebar > .inner a,
+#sidebar > .inner icon {
+  color: #fff;
+  opacity: 0.75;
+  transition: opacity 0.3s;
+}
+#sidebar > .inner icon:hover {
+  opacity: 1;
+}
+#sidebar > .inner > .header h2 {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  width: 90%;
+  box-sizing: border-box;
+}
+#sidebar > .inner > .header h2 {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  height: 44px;
+  margin: 0 0 12px 0;
+  padding: 0 12px;
+  font-size: 14px;
+  color: #f5f5f5;
+  cursor: pointer;
+  border-top: 0px solid rgba(0, 0, 0, 0);
+}
+#sidebar > .inner > .header h2 icon {
+  margin-left: 6px;
+  transform: rotate(-90deg);
+}
+#sidebar > .inner > .header h2.light,
+#sidebar > .inner > .header h2.light icon {
+  color: #eee;
+}
+#sidebar > .inner > .header h2.dark,
+#sidebar > .inner > .header h2.dark icon {
+  color: #222;
+}
+#sidebar > .inner .spaces-container {
+  position: fixed;
+  z-index: 0;
+  top: 0;
+  width: 90%;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s;
+  background: #202321;
+}
+#sidebar > .inner .spaces-container.open {
+  height: 100%;
+}
+#sidebar > .inner .spaces-container.zin {
+  z-index: 8;
+}
+#sidebar > .inner .spaces-container.scroll {
+  overflow: auto;
+}
+#sidebar > .inner .spaces-container .gutter {
+  padding-top: 56px;
+}
+#sidebar > .inner .spaces-container h2 {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  width: 90%;
+}
+#sidebar > .inner .spaces-container h2 {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  height: 44px;
+  padding: 12px;
+  cursor: pointer;
+  color: #ddd;
+  font-size: 14px;
+  box-sizing: border-box;
+  background: #080808;
+}
+#sidebar > .inner .gutter {
+  padding: 12px 0;
+}
+#sidebar > .inner .gutter .filter {
+  position: relative;
+  z-index: 3;
+  padding: 0 12px;
+}
+#sidebar > .inner .gutter .filter icon {
+  position: absolute;
+  top: 9px;
+  right: 18px;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+#sidebar > .inner .gutter .filter icon.close {
+  opacity: 0;
+}
+#sidebar > .inner .gutter .filter.active icon.close {
+  opacity: 1;
+}
+#sidebar > .inner .gutter .filter.active icon.find {
+  opacity: 0;
+}
+#sidebar > .inner .gutter .filter input {
+  display: block;
+  width: 100%;
+  padding: 6px;
+  color: #f5f5f5;
+  box-sizing: border-box;
+  background: #080808;
+  border: 0;
+  border-radius: 3px;
+}
+#sidebar > .inner .gutter ul.boards,
+#sidebar > .inner .gutter ul.spaces {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#sidebar > .inner .gutter ul.boards li,
+#sidebar > .inner .gutter ul.spaces li {
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #191b19;
+}
+#sidebar > .inner .gutter ul.boards li a,
+#sidebar > .inner .gutter ul.spaces li a {
+  display: block;
+  padding: 14px 12px;
+  font-size: 14px;
+}
+#sidebar > .inner .gutter ul.boards li a:first-child,
+#sidebar > .inner .gutter ul.spaces li a:first-child {
+  width: 90%;
+}
+#sidebar > .inner .gutter ul.boards li a:before,
+#sidebar > .inner .gutter ul.spaces li a:before {
+  content: " ";
+  position: absolute;
+  opacity: 0;
+  z-index: 4;
+  right: 10px;
+  margin: 4px 0 0 0;
+  width: 12px;
+  height: 12px;
+  background: #e85c5c;
+  border-radius: 6px;
+  transition: opacity 0.3s;
+}
+#sidebar > .inner .gutter ul.boards li a.go,
+#sidebar > .inner .gutter ul.spaces li a.go {
+  max-width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#sidebar > .inner .gutter ul.boards li.notify a:before,
+#sidebar > .inner .gutter ul.spaces li.notify a:before {
+  opacity: 1;
+}
+#sidebar > .inner .gutter ul.boards li.sel a,
+#sidebar > .inner .gutter ul.spaces li.sel a {
+  font-weight: bold;
+  opacity: 0.85;
+}
+#sidebar > .inner .gutter ul.boards li a.edit icon,
+#sidebar > .inner .gutter ul.spaces li a.edit icon {
+  font-size: 18px;
+}
+#sidebar > .inner .gutter ul.boards li.add a,
+#sidebar > .inner .gutter ul.spaces li.add a,
+#sidebar > .inner .gutter ul.boards li.add span,
+#sidebar > .inner .gutter ul.spaces li.add span {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+  width: 100%;
+  margin: 6px 0 6px 0;
+  padding: 12px;
+  font-size: 11px;
+  text-transform: uppercase;
+  border-left: 0;
+}
+#sidebar > .inner .gutter ul.boards li.add span,
+#sidebar > .inner .gutter ul.spaces li.add span {
+  color: #fff;
+  opacity: 0.75;
+  transition: opacity 0.3s;
+}
+#sidebar > .inner .gutter ul.boards li.add icon,
+#sidebar > .inner .gutter ul.spaces li.add icon {
+  font-size: 19px;
+}
+#sidebar > .inner .gutter ul.boards li .go icon {
+  margin: 0 6px 0 0;
+  opacity: 0.25;
+}
+#sidebar > .inner .gutter ul.boards li.sel .go icon {
+  opacity: 0.5;
+}
+#sidebar > .inner .gutter ul.spaces li a {
+  border-left: 8px solid rgba(0, 0, 0, 0);
+}
+@media only screen and (min-width: 800px) {
+  #sidebar .inner,
+  #sidebar .inner .header h2,
+  #sidebar .inner .spaces-container,
+  #sidebar .inner .spaces-container h2 {
+    width: 45%;
+  }
+}
+body.settings #sidebar {
+  left: 0%;
+}
+body.settings #sidebar > .overlay {
+  position: fixed;
+  left: 0;
+}
+@static : ''../..'';

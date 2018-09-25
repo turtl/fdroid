@@ -1,0 +1,107 @@
+.fixed-fix {
+  -webkit-transform: translateZ(0);
+}
+#main > .action,
+.turtl-modal > .action {
+  position: fixed;
+  -webkit-transform: translateZ(0);
+  z-index: 12;
+  bottom: 18px;
+  right: 18px;
+}
+#main > .action .abutton,
+.turtl-modal > .action .abutton {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border: 2px solid #fff;
+  border-radius: 26.31578947px;
+  background: #83b362;
+  box-shadow: 0 2px 4px 2px rgba(20, 20, 20, 0.2);
+  transition: box-shadow 0.3s;
+}
+#main > .action > .abutton,
+.turtl-modal > .action > .abutton {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+#main > .action .abutton icon,
+.turtl-modal > .action .abutton icon {
+  line-height: 2.2em;
+  color: #fff;
+  font-size: 22px;
+}
+#main > .action .abutton icon.add,
+.turtl-modal > .action .abutton icon.add {
+  font-size: 32px;
+  line-height: 1em;
+}
+#main > .action > a,
+.turtl-modal > .action > a {
+  z-index: 21;
+}
+#main > .action ul,
+.turtl-modal > .action ul {
+  display: none;
+  margin: 0 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+#main > .action ul li,
+.turtl-modal > .action ul li {
+  position: fixed;
+  z-index: 20;
+  bottom: 18px;
+  right: 0;
+  opacity: 0;
+  text-align: right;
+  white-space: nowrap;
+}
+#main > .action ul li .abutton,
+.turtl-modal > .action ul li .abutton {
+  width: 42px;
+  height: 42px;
+  margin-right: 4px;
+}
+#main > .action ul li .abutton icon,
+.turtl-modal > .action ul li .abutton icon {
+  line-height: 1.95em;
+}
+#main > .action ul li h4,
+.turtl-modal > .action ul li h4 {
+  display: none;
+  margin: 0 8px 0 0;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 2px;
+}
+#main > .action.open > a,
+.turtl-modal > .action.open > a {
+  box-shadow: 0 1px 2px rgba(20, 20, 20, 0.2);
+}
+#main > .action.open ul,
+.turtl-modal > .action.open ul {
+  display: block;
+}
+#main > .action.open ul li,
+.turtl-modal > .action.open ul li {
+  opacity: 1;
+}
+#main > .action.open ul li h4,
+.turtl-modal > .action.open ul li h4 {
+  display: inline-block;
+}
+#main > .action.hide,
+.turtl-modal > .action.hide {
+  display: none;
+}
+@static : ''../..'';

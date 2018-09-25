@@ -1,0 +1,107 @@
+@import 'variables';
+
+// -----------------------------------------------------------------------------
+// app fonts
+// -----------------------------------------------------------------------------
+
+.import-font (@name, @path, @weight: 400, @style: '', @format: '') {
+	.import-font-style(@style) when (@style = '') {
+	}
+	.import-font-style(@style) when (default()) {
+		font-style: @style;
+	}
+	.import-font-src(@path, @format) when (@format = '') {
+		src: url(@path);
+	}
+	.import-font-src(@path, @format) when (default()) {
+		src: url(@path) format(@format);
+	}
+	@font-path: ~"@{static}/images/font/@{path}";
+	@font-face {
+		font-family: @name;
+		font-weight: @weight;
+		.import-font-style(@style);
+		.import-font-src(@font-path, @format);
+	}
+}
+.import-font('Entypo', 'turtl-icons.ttf');
+.import-font('Noto Sans', 'NotoSans-Regular.ttf', 400, '', 'ttf');
+.import-font('Noto Sans', 'NotoSans-Italic.ttf', 400, 'italic', 'ttf');
+.import-font('Noto Sans', 'NotoSans-Bold.ttf', 700, 'normal', 'ttf');
+.import-font('Noto Sans', 'NotoSans-BoldItalic.ttf', 700, 'italic', 'ttf');
+.import-font('Noto Mono', 'NotoMono-Regular.ttf', 400, 'normal', 'ttf');
+
+// -----------------------------------------------------------------------------
+// katex fonts
+// -----------------------------------------------------------------------------
+
+@font-folder: "@{static}/images/font/katex";
+@use-eot: false;
+@use-ttf: true;
+@use-woff: false;
+@use-woff2: false;
+
+.use-eot(@family, @family-suffix) when (@use-eot = true) {
+    src: url('@{font-folder}/KaTeX_@{family}-@{family-suffix}.eot');
+    src+: url('@{font-folder}/KaTeX_@{family}-@{family-suffix}.eot#iefix') format('embedded-opentype')
+}
+
+.use-woff2(@family, @family-suffix) when (@use-woff2 = true) {
+    src+: url('@{font-folder}/KaTeX_@{family}-@{family-suffix}.woff2') format('woff2')
+}
+
+.use-woff(@family, @family-suffix) when (@use-woff = true) {
+    src+: url('@{font-folder}/KaTeX_@{family}-@{family-suffix}.woff') format('woff')
+}
+
+.use-ttf(@family, @family-suffix) when (@use-ttf = true) {
+    src+: url('@{font-folder}/KaTeX_@{family}-@{family-suffix}.ttf') format('truetype')
+}
+
+.generate-suffix(@weight, @style) when (@weight = normal) and (@style = normal) {
+    @suffix: 'Regular';
+}
+.generate-suffix(@weight, @style) when (@weight = normal) and (@style = italic) {
+    @suffix: 'Italic';
+}
+.generate-suffix(@weight, @style) when (@weight = bold) and (@style = normal) {
+    @suffix: 'Bold';
+}
+.generate-suffix(@weight, @style) when (@weight = bold) and (@style = italic) {
+    @suffix: 'BoldItalic';
+}
+
+.katex-font-face(@family, @weight, @style) {
+    .generate-suffix(@weight, @style);
+    @font-face {
+        font-family: 'KaTeX_@{family}';
+        .use-eot(@family, @suffix);
+        .use-woff2(@family, @suffix);
+        .use-woff(@family, @suffix);
+        .use-ttf(@family, @suffix);
+        font-weight: @weight;
+        font-style: @style;
+    }
+}
+
+.katex-font-face('AMS', normal, normal);
+.katex-font-face('Caligraphic', bold, normal);
+.katex-font-face('Caligraphic', normal, normal);
+.katex-font-face('Fraktur', bold, normal);
+.katex-font-face('Fraktur', normal, normal);
+.katex-font-face('Main', bold, normal);
+.katex-font-face('Main', normal, italic);
+.katex-font-face('Main', normal, normal);
+//.katex-font-face('Math', bold, italic);
+.katex-font-face('Math', normal, italic);
+//.katex-font-face('Math', normal, normal);
+//.katex-font-face('SansSerif', bold, normal);
+//.katex-font-face('SansSerif', normal, italic);
+.katex-font-face('SansSerif', normal, normal);
+.katex-font-face('Script', normal, normal);
+.katex-font-face('Size1', normal, normal);
+.katex-font-face('Size2', normal, normal);
+.katex-font-face('Size3', normal, normal);
+.katex-font-face('Size4', normal, normal);
+.katex-font-face('Typewriter', normal, normal);
+

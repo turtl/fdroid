@@ -1,0 +1,98 @@
+.fixed-fix {
+  -webkit-transform: translateZ(0);
+}
+.turtl-overlay {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 0.3s;
+}
+.turtl-overlay.closing {
+  z-index: 19;
+}
+.turtl-overlay.active {
+  z-index: 19;
+  opacity: 1;
+  cursor: pointer;
+}
+.turtl-overlay.active.unclickable {
+  cursor: default;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.turtl-modal {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  z-index: 20;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background: #ededed;
+  transition: right 0.3s;
+  background: #fff;
+  box-shadow: 0 2px 4px 2px rgba(20, 20, 20, 0.2);
+  -webkit-overflow-scrolling: touch;
+}
+.turtl-modal.active {
+  right: 0%;
+}
+@media only screen and (min-width: 800px) {
+  .turtl-modal {
+    width: 90%;
+  }
+  .turtl-modal header {
+    width: 90%;
+  }
+  .turtl-modal form.standard-form .button-row {
+    width: 90%;
+    right: 0;
+    left: auto;
+  }
+}
+.turtl-modal header {
+  background: #222;
+}
+.turtl-modal header a.logo {
+  display: none;
+}
+.turtl-modal header h1 {
+  margin-left: 10px;
+}
+.turtl-modal header h1 em a {
+  color: #fff;
+}
+.turtl-modal header h1 em strong {
+  font-weight: bold;
+}
+.turtl-modal header h1 em icon {
+  color: #fff;
+}
+.turtl-modal header ul.actions {
+  right: 10px;
+}
+.turtl-modal header ul.actions > li > a icon {
+  color: #fff;
+}
+.turtl-modal header ul.actions > li .item-actions > a icon {
+  color: #fff;
+}
+.turtl-modal .modal-gutter {
+  padding: 44px 0 0 0;
+}
+.turtl-modal .modal-gutter.closing form.standard-form .button-row {
+  display: none;
+}
+.turtl-modal form.standard-form {
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+.turtl-modal .interface {
+  width: auto;
+}
+@static : ''../..'';

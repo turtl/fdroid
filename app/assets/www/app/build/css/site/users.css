@@ -1,0 +1,219 @@
+.fixed-fix {
+  -webkit-transform: translateZ(0);
+}
+.user-login form,
+.user-join form,
+.user-migrate form {
+  padding-top: 38px;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+.user-login .autologin,
+.user-join .autologin,
+.user-migrate .autologin {
+  text-align: center;
+  font-size: 16px;
+}
+.user-login .autologin .warn,
+.user-join .autologin .warn,
+.user-migrate .autologin .warn {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s;
+}
+.user-login .autologin .warn.show,
+.user-join .autologin .warn.show,
+.user-migrate .autologin .warn.show {
+  max-height: 60px;
+}
+.user-login .autologin .warn span,
+.user-join .autologin .warn span,
+.user-migrate .autologin .warn span {
+  display: block;
+  padding-top: 8px;
+  line-height: 1.2em;
+  color: #e85c5c;
+}
+.user-login .buttons,
+.user-join .buttons,
+.user-migrate .buttons {
+  margin: 32px 0 0 0;
+}
+.user-login .button,
+.user-join .button,
+.user-migrate .button {
+  margin: 0 0 16px 0;
+}
+.user-login a.open-settings,
+.user-join a.open-settings,
+.user-migrate a.open-settings {
+  display: block;
+  margin: 32px 0 8px 0;
+  font-size: 1.3em;
+  text-align: center;
+}
+.user-login a.open-settings.active icon,
+.user-join a.open-settings.active icon,
+.user-migrate a.open-settings.active icon {
+  transform: rotate(90deg);
+}
+.user-login a.open-settings icon,
+.user-join a.open-settings icon,
+.user-migrate a.open-settings icon {
+  font-size: 14px;
+  color: #83b362;
+  transform: rotate(270deg);
+  transition: transform 0.3s;
+}
+.user-login .settings-container,
+.user-join .settings-container,
+.user-migrate .settings-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s;
+}
+.user-login .settings-container.active,
+.user-join .settings-container.active,
+.user-migrate .settings-container.active {
+  max-height: 120px;
+}
+.user-login .settings-container.old-server.active,
+.user-join .settings-container.old-server.active,
+.user-migrate .settings-container.old-server.active {
+  max-height: 160px;
+}
+.user-login .settings-container p.settings,
+.user-join .settings-container p.settings,
+.user-migrate .settings-container p.settings {
+  margin: 0 0 16px 0;
+  padding: 10px;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(20, 20, 20, 0.2);
+}
+.user-login .settings-container p.settings label,
+.user-join .settings-container p.settings label,
+.user-migrate .settings-container p.settings label {
+  color: #888;
+}
+.user-login .settings-container p.settings small,
+.user-join .settings-container p.settings small,
+.user-migrate .settings-container p.settings small {
+  font-size: 0.7em;
+}
+.user-login p.join,
+.user-join p.join,
+.user-migrate p.join {
+  text-align: center;
+}
+.user-login .strength,
+.user-join .strength,
+.user-migrate .strength {
+  margin: 16px 8px 0 8px;
+}
+.user-login .strength p,
+.user-join .strength p,
+.user-migrate .strength p {
+  padding: 4px 0;
+  font-size: 14px;
+  text-align: center;
+}
+.user-login .strength.level-too-short .inner,
+.user-join .strength.level-too-short .inner,
+.user-migrate .strength.level-too-short .inner {
+  background: #e85c5c;
+}
+.user-login .strength.level-too-short span,
+.user-join .strength.level-too-short span,
+.user-migrate .strength.level-too-short span {
+  color: #e85c5c;
+}
+.user-login .strength.level-weak .inner,
+.user-join .strength.level-weak .inner,
+.user-migrate .strength.level-weak .inner {
+  background: #e88755;
+}
+.user-login .strength.level-weak span,
+.user-join .strength.level-weak span,
+.user-migrate .strength.level-weak span {
+  color: #e88755;
+}
+.user-login .strength.level-ok .inner,
+.user-join .strength.level-ok .inner,
+.user-migrate .strength.level-ok .inner {
+  background: #9ab389;
+}
+.user-login .strength.level-ok span,
+.user-join .strength.level-ok span,
+.user-migrate .strength.level-ok span {
+  color: #9ab389;
+}
+.user-login .strength.level-good .inner,
+.user-join .strength.level-good .inner,
+.user-migrate .strength.level-good .inner {
+  background: #83b362;
+}
+.user-login .strength.level-good span,
+.user-join .strength.level-good span,
+.user-migrate .strength.level-good span {
+  color: #83b362;
+}
+.user-login .strength.level-great .inner,
+.user-join .strength.level-great .inner,
+.user-migrate .strength.level-great .inner,
+.user-login .strength.level-excellent .inner,
+.user-join .strength.level-excellent .inner,
+.user-migrate .strength.level-excellent .inner {
+  background: #65a5ee;
+}
+.user-login .strength.level-great span,
+.user-join .strength.level-great span,
+.user-migrate .strength.level-great span,
+.user-login .strength.level-excellent span,
+.user-join .strength.level-excellent span,
+.user-migrate .strength.level-excellent span {
+  color: #65a5ee;
+}
+.user-join.confirm .confirm-text {
+  padding: 24px 16px 0 16px;
+  font-size: .9em;
+  text-align: left;
+}
+.user-join.confirm .confirm-text em {
+  font-style: italic;
+}
+.user-join.confirm .buttons {
+  padding: 6px 0 16px 0;
+}
+.user-join.confirm .button {
+  margin-top: 0;
+}
+.user-main {
+  width: 700px;
+  margin: 60px auto 0 auto;
+}
+.user-main .login-main {
+  float: left;
+}
+.user-main .join-main {
+  float: right;
+  padding-left: 50px;
+  border-left: 1px solid #ccc;
+}
+.user-must-login {
+  margin: 0;
+}
+.user-must-login .content {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  height: 100vh;
+}
+.user-must-login .msg {
+  text-align: center;
+}
+@static : ''../..'';

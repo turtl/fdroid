@@ -1,0 +1,10 @@
+.fixed-fix {
+  -webkit-transform: translateZ(0);
+}
+.feedback form {
+  padding-bottom: 16px;
+}
+.feedback .content p {
+  font-size: 15px;
+}
+@static : ''../..'';
