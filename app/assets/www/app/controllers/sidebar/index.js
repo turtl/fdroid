@@ -76,6 +76,9 @@ const SidebarController = Composer.Controller.extend({
 							viewstate: this.viewstate,
 							sortfn: fuzzy_sort,
 						});
+						this.bind('focus-space-filter', function(opts) {
+							this.focus_if(sub.inp_space_filter, opts);
+						}.bind(this));
 						this.bind('blur-space-filter', function() {
 							if(sub.inp_space_filter) sub.inp_space_filter.blur();
 						});
@@ -223,9 +226,7 @@ const SidebarController = Composer.Controller.extend({
 		this.render()
 			.bind(this)
 			.then(function() {
-				setTimeout(function() {
-					if(get_platform() != 'mobile') this.inp_space_filter.focus();
-				}.bind(this), 100);
+				this.trigger('focus-space-filter', {delay: 100});
 			});
 	},
 
@@ -246,9 +247,13 @@ const SidebarController = Composer.Controller.extend({
 			this.render();
 			this.clear_space_filter();
 		}.bind(this), 300);
-		this.trigger('blur-space-filter');
-		this.trigger('focus-board-filter', {delay: 5});
+		// yes, do this in a loop. i'm sick of the filter not being focused
+		for(var i = 0; i < 8; i++) {
+			// timmy, when i tell you to do something, you do it.
+			this.trigger('focus-board-filter', {delay: i * 2});
+		}
 		this.clear_board_filter();
+		this.trigger('blur-space-filter');
 	},
 
 	close_spaces: function(e) {
@@ -289,7 +294,9 @@ const SidebarController = Composer.Controller.extend({
 		if(!el) return;
 
 		if(get_platform() == 'mobile') return;
-		if(options.delay === undefined) {
+		if(options.delay <= 0) {
+			el.focus();
+		} else if(options.delay === undefined) {
 			setTimeout(function() { el.focus(); }, 100);
 		} else {
 			setTimeout(function() { el.focus(); }, options.delay);

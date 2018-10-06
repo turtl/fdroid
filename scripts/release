@@ -5,6 +5,7 @@ version=$1
 if [ "${version}" == "" ]; then
 	echo
 	echo "  Usage: $0 <version>"
+	echo '   (leave the leading "v" our of the version)'
 	echo
 	exit 1
 fi

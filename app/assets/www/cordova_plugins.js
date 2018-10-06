@@ -188,6 +188,14 @@ module.exports = [
     "clobbers": [
       "TurtlCore"
     ]
+  },
+  {
+    "id": "cordova-plugin-backbutton.Backbutton",
+    "file": "plugins/cordova-plugin-backbutton/www/Backbutton.js",
+    "pluginId": "cordova-plugin-backbutton",
+    "clobbers": [
+      "navigator.Backbutton"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -196,7 +204,8 @@ module.exports.metadata =
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-file": "6.0.1",
   "com.lyonbros.turtlstore": "0.1.0",
-  "com.lyonbros.turtlcore": "0.1.0"
+  "com.lyonbros.turtlcore": "0.1.0",
+  "cordova-plugin-backbutton": "0.3.0"
 };
 // BOTTOM OF METADATA
 });

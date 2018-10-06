@@ -121,6 +121,14 @@
     padding: 16px;
   }
 }
+.note.image:not(.view) .content .body {
+  padding: 6px;
+}
+@media only screen and (min-width: 800px) {
+  .note.image:not(.view) .content .body {
+    padding: 16px;
+  }
+}
 .note.image .backing {
   position: relative;
   z-index: 10;
