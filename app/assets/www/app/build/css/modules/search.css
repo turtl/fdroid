@@ -18,13 +18,27 @@
   }
 }
 .search-filters {
-  padding: 16px 6px 0 6px;
+  padding: 0 6px 0 6px;
 }
 @media only screen and (min-width: 800px) {
   .search-filters {
     padding-left: 12px;
     padding-right: 12px;
   }
+}
+.search-filters .clear-search {
+  margin: 0 0 16px 0;
+  border-bottom: 1px solid #eee;
+}
+.search-filters .clear-search a {
+  display: block;
+  padding: 16px;
+  font-size: 16px;
+  text-align: center;
+}
+.search-filters .clear-search icon {
+  margin-right: 8px;
+  opacity: 0.5;
 }
 .search-filters .filter-sort {
   padding: 0 0 16px 0;

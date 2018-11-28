@@ -196,6 +196,14 @@ module.exports = [
     "clobbers": [
       "navigator.Backbutton"
     ]
+  },
+  {
+    "id": "cc.fovea.cordova.openwith.openwith",
+    "file": "plugins/cc.fovea.cordova.openwith/www/openwith.js",
+    "pluginId": "cc.fovea.cordova.openwith",
+    "clobbers": [
+      "cordova.openwith"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -205,7 +213,8 @@ module.exports.metadata =
   "cordova-plugin-file": "6.0.1",
   "com.lyonbros.turtlstore": "0.1.0",
   "com.lyonbros.turtlcore": "0.1.0",
-  "cordova-plugin-backbutton": "0.3.0"
+  "cordova-plugin-backbutton": "0.3.0",
+  "cc.fovea.cordova.openwith": "1.0.0"
 };
 // BOTTOM OF METADATA
 });

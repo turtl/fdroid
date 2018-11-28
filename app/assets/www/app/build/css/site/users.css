@@ -47,7 +47,10 @@
 }
 .user-login a.open-settings,
 .user-join a.open-settings,
-.user-migrate a.open-settings {
+.user-migrate a.open-settings,
+.user-login a.trouble,
+.user-join a.trouble,
+.user-migrate a.trouble {
   display: block;
   margin: 32px 0 8px 0;
   font-size: 1.3em;
@@ -55,12 +58,18 @@
 }
 .user-login a.open-settings.active icon,
 .user-join a.open-settings.active icon,
-.user-migrate a.open-settings.active icon {
+.user-migrate a.open-settings.active icon,
+.user-login a.trouble.active icon,
+.user-join a.trouble.active icon,
+.user-migrate a.trouble.active icon {
   transform: rotate(90deg);
 }
 .user-login a.open-settings icon,
 .user-join a.open-settings icon,
-.user-migrate a.open-settings icon {
+.user-migrate a.open-settings icon,
+.user-login a.trouble icon,
+.user-join a.trouble icon,
+.user-migrate a.trouble icon {
   font-size: 14px;
   color: #83b362;
   transform: rotate(270deg);
@@ -215,5 +224,17 @@
 }
 .user-must-login .msg {
   text-align: center;
+}
+.migration-report {
+  padding: 16px;
+  font-size: 1.4em;
+}
+.migration-report p {
+  margin-bottom: 16px;
+  line-height: 1.4em;
+}
+.migration-report .migration-error {
+  padding: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 @static : ''../..'';

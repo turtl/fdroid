@@ -171,6 +171,8 @@
 #sidebar > .inner .gutter ul.spaces li {
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-align: center;
+      align-items: center;
   border-bottom: 1px solid #191b19;
 }
 #sidebar > .inner .gutter ul.boards li a,
@@ -203,6 +205,11 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+#sidebar > .inner .gutter ul.boards li .icon-share,
+#sidebar > .inner .gutter ul.spaces li .icon-share {
+  display: block;
+  opacity: 0.3;
 }
 #sidebar > .inner .gutter ul.boards li.notify a:before,
 #sidebar > .inner .gutter ul.spaces li.notify a:before {

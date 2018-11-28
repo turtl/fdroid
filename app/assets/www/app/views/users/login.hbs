@@ -1,4 +1,4 @@
-<input type="text" name="username" placeholder="{{t 'Email'}}" value="{{state.last_username}}" tabindex="1" autocomplete="off" autocorrect="off" autocapitalize="off">
+<input type="email" name="username" placeholder="{{t 'Email'}}" value="{{state.last_username}}" tabindex="1" autocomplete="off" autocorrect="off" autocapitalize="off">
 <input type="password" name="password" placeholder="{{t 'Passphrase'}}" autocomplete="off" autocorrect="off" tabindex="2">
 {{remember-me autologin}}
 
@@ -23,8 +23,10 @@
 		</label>
 		<label>
 			{{t 'Turtl server'}}
-			<input type="text" name="server" value="{{state.endpoint}}" placeholder="https://api.turtlapp.com/v3">
+			<input type="text" name="server" value="{{state.endpoint}}" placeholder="https://apiv3.turtlapp.com">
 		</label>
 	</p>
 </div>
+
+<a class="trouble" target="_blank" href="https://turtlapp.com/docs/troubleshooting/logging-in/">{{t 'Trouble logging in?'}}</a>
 

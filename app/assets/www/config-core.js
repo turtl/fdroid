@@ -17,6 +17,7 @@ var turtl_core_config = {
   "api": {
     "endpoint": "https://apiv3.turtlapp.com",
     "client_version_string": "core",
+    "proxy": false,
     "v6": {
       "endpoint": "https://api.turtlapp.com/v2"
     }

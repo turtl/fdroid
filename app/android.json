@@ -31,6 +31,14 @@
             {
               "xml": "<feature name=\"BackbuttonPlugin\"><param name=\"android-package\" value=\"com.badrit.Backbutton.BackbuttonPlugin\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"OpenWithPlugin\"><param name=\"android-package\" value=\"cc.fovea.openwith.OpenWithPlugin\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<preference name=\"AndroidLaunchMode\" value=\"singleTask\" />",
+              "count": 1
             }
           ]
         }
@@ -46,7 +54,15 @@
               "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
               "count": 1
             }
-          ]
+          ],
+          "/manifest/application/activity": [
+            {
+              "xml": "<intent-filter><action android:name=\"android.intent.action.SEND\" /><category android:name=\"android.intent.category.DEFAULT\" /><data android:mimeType=\"*/*\" /></intent-filter>",
+              "count": 69
+            }
+          ],
+          "/manifest": [],
+          "/manifest/application": []
         }
       }
     }
@@ -65,6 +81,9 @@
       "PACKAGE_NAME": "com.lyonbros.turtl"
     },
     "cordova-plugin-backbutton": {
+      "PACKAGE_NAME": "com.lyonbros.turtl"
+    },
+    "cc.fovea.cordova.openwith": {
       "PACKAGE_NAME": "com.lyonbros.turtl"
     }
   },
@@ -266,6 +285,14 @@
       "clobbers": [
         "navigator.Backbutton"
       ]
+    },
+    {
+      "id": "cc.fovea.cordova.openwith.openwith",
+      "file": "plugins/cc.fovea.cordova.openwith/www/openwith.js",
+      "pluginId": "cc.fovea.cordova.openwith",
+      "clobbers": [
+        "cordova.openwith"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -273,6 +300,7 @@
     "cordova-plugin-file": "6.0.1",
     "com.lyonbros.turtlstore": "0.1.0",
     "com.lyonbros.turtlcore": "0.1.0",
-    "cordova-plugin-backbutton": "0.3.0"
+    "cordova-plugin-backbutton": "0.3.0",
+    "cc.fovea.cordova.openwith": "1.0.0"
   }
 }

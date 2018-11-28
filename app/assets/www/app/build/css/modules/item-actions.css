@@ -47,6 +47,10 @@ div.item-actions > .menu > .row ul li a {
   display: block;
   padding: 12px 6px;
   color: #444;
+  line-height: 18px;
+}
+div.item-actions > .menu > .row ul li a:hover {
+  background: #f5f5f5;
 }
 div.item-actions.open > .menu {
   display: block;

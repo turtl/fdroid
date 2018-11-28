@@ -39,7 +39,7 @@
   box-shadow: 0 1px 3px rgba(20, 20, 20, 0.2);
   cursor: pointer;
 }
-.notes ul.note-list > li.crypto-error {
+.notes ul.note-list > li.note-error {
   background: #fdd;
 }
 .notes ul.note-list > li .body {
