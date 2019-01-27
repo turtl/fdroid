@@ -1,1 +1,1 @@
-var cordova_app_version = '0.7.2.4';
+var cordova_app_version = '0.7.2.5';

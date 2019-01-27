@@ -4,8 +4,7 @@ Object.merge(config, {
 	version: cordova_app_version,
 	cookie_login: false,
 	base_url: window.location.toString().replace(/\/(index\.html)?$/, '/app'),
-	has_autologin: true,
-	openssl_override_root: false,
+	openssl_override_root: true,
 	core: {
 		adapter: 'mobile',
 		options: {},

@@ -58,7 +58,7 @@
           "/manifest/application/activity": [
             {
               "xml": "<intent-filter><action android:name=\"android.intent.action.SEND\" /><category android:name=\"android.intent.category.DEFAULT\" /><data android:mimeType=\"*/*\" /></intent-filter>",
-              "count": 69
+              "count": 75
             }
           ],
           "/manifest": [],

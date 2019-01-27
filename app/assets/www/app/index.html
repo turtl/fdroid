@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="test/html; charset=utf-8">
 		<meta http-equiv="Content-Language" content="en">
-		<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap:; connect-src *; style-src 'self' 'unsafe-inline'; media-src *; img-src * blob: data: android-webview-video-poster:; object-src 'none'; script-src 'self' data: gap:; frame-src *;">
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap:; connect-src *; style-src 'self' 'unsafe-inline'; media-src *; img-src * blob: data: android-webview-video-poster:; object-src 'none'; script-src 'self' data: gap:; frame-src gap://ready;">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 		<title>Turtl</title>
@@ -11,150 +11,150 @@
 		<link rel="shortcut icon" href="images/favicon.png" type="image/png">
 
 <base href="/">
-<link rel="stylesheet" href="/build/css/vnd/reset.css?v1543371151">
-<link rel="stylesheet" href="/build/css/fonts.css?v1543371151">
-<link rel="stylesheet" href="/build/css/template.css?v1543371151">
-<link rel="stylesheet" href="/build/css/general.css?v1543371151">
-<link rel="stylesheet" href="/build/css/fonts.css?v1543371151">
-<link rel="stylesheet" href="/build/css/katex.css?v1543371151">
-<link rel="stylesheet" href="/build/css/modules/actions.css?v1543371151">
-<link rel="stylesheet" href="/build/css/modules/barfr.css?v1543371151">
-<link rel="stylesheet" href="/build/css/modules/form.css?v1543371151">
-<link rel="stylesheet" href="/build/css/modules/item-actions.css?v1543371151">
-<link rel="stylesheet" href="/build/css/modules/modal.css?v1543371151">
-<link rel="stylesheet" href="/build/css/modules/search.css?v1543371151">
-<link rel="stylesheet" href="/build/css/modules/sidebar.css?v1543371151">
-<link rel="stylesheet" href="/build/css/site/boards.css?v1543371151">
-<link rel="stylesheet" href="/build/css/site/export.css?v1543371151">
-<link rel="stylesheet" href="/build/css/site/feedback.css?v1543371151">
-<link rel="stylesheet" href="/build/css/site/help.css?v1543371151">
-<link rel="stylesheet" href="/build/css/site/notes.css?v1543371151">
-<link rel="stylesheet" href="/build/css/site/settings.css?v1543371151">
-<link rel="stylesheet" href="/build/css/site/spaces.css?v1543371151">
-<link rel="stylesheet" href="/build/css/site/tags.css?v1543371151">
-<link rel="stylesheet" href="/build/css/site/users.css?v1543371151">
-<script src="/lib/vnd/mootools-core-1.5.2.js?v1543371151"></script>
-<script src="/lib/vnd/mootools-more-1.5.1.js?v1543371151"></script>
-<script src="/lib/vnd/composer.js?v1543371151"></script>
-<script src="/lib/vnd/bluebird.js?v1543371151"></script>
-<script src="/lib/vnd/History.mootools.js?v1543371151"></script>
-<script src="/lib/vnd/autocomplete.js?v1543371151"></script>
-<script src="/lib/vnd/barfr.js?v1543371151"></script>
-<script src="/lib/vnd/fuzzy.js?v1543371151"></script>
-<script src="/lib/vnd/hammer-2.0.8.js?v1543371151"></script>
-<script src="/lib/vnd/handlebars.runtime-v4.0.11.js?v1543371151"></script>
-<script src="/lib/vnd/i18next.js?v1543371151"></script>
-<script src="/lib/vnd/katex.js?v1543371151"></script>
-<script src="/lib/vnd/loglevel.js?v1543371151"></script>
-<script src="/lib/vnd/lunr.js?v1543371151"></script>
-<script src="/lib/vnd/markdown-it-katex.js?v1543371151"></script>
-<script src="/lib/vnd/markdown-it-task-lists.js?v1543371151"></script>
-<script src="/lib/vnd/markdown-it.js?v1543371151"></script>
-<script src="/lib/vnd/masonry.pkgd.js?v1543371151"></script>
-<script src="/lib/vnd/mobile.js?v1543371151"></script>
-<script src="/lib/vnd/morphdom.js?v1543371151"></script>
-<script src="/lib/vnd/sexhr.js?v1543371151"></script>
-<script src="/lib/vnd/sodium.js?v1543371151"></script>
-<script src="/lib/vnd/velocity.js?v1543371151"></script>
-<script src="/lib/vnd/velocity.ui.js?v1543371151"></script>
-<script src="/handlers/_init.js?v1543371151"></script>
-<script src="/handlers/boards.js?v1543371151"></script>
-<script src="/handlers/invites.js?v1543371151"></script>
-<script src="/handlers/notes.js?v1543371151"></script>
-<script src="/handlers/settings.js?v1543371151"></script>
-<script src="/handlers/spaces.js?v1543371151"></script>
-<script src="/handlers/users.js?v1543371151"></script>
-<script src="/config/config.js?v1543371151"></script>
-<script src="/config/auth.js?v1543371151"></script>
-<script src="/config/constants.js?v1543371151"></script>
-<script src="/config/routes.js?v1543371151"></script>
-<script src="/lib/app/_functions.js?v1543371151"></script>
-<script src="/lib/app/backstate.js?v1543371151"></script>
-<script src="/lib/app/composer_sync.js?v1543371151"></script>
-<script src="/lib/app/core-adaptors/_base.js?v1543371151"></script>
-<script src="/lib/app/core-adaptors/websocket.js?v1543371151"></script>
-<script src="/lib/app/handlebars.helpers.js?v1543371151"></script>
-<script src="/lib/app/keyboard.js?v1543371151"></script>
-<script src="/lib/app/modal.js?v1543371151"></script>
-<script src="/lib/app/overlay.js?v1543371151"></script>
-<script src="/lib/app/param_router.js?v1543371151"></script>
-<script src="/lib/app/public_setting.js?v1543371151"></script>
-<script src="/lib/app/remember-me/_base.js?v1543371151"></script>
-<script src="/lib/app/remember-me/localstorage.js?v1543371151"></script>
-<script src="/lib/app/timer.js?v1543371151"></script>
-<script src="/controllers/0modules/action.js?v1543371151"></script>
-<script src="/controllers/0modules/form.js?v1543371151"></script>
-<script src="/controllers/0modules/header.js?v1543371151"></script>
-<script src="/controllers/0modules/item-actions.js?v1543371151"></script>
-<script src="/controllers/0modules/loading.js?v1543371151"></script>
-<script src="/controllers/0modules/action.js?v1543371151"></script>
-<script src="/controllers/0modules/form.js?v1543371151"></script>
-<script src="/controllers/0modules/header.js?v1543371151"></script>
-<script src="/controllers/0modules/item-actions.js?v1543371151"></script>
-<script src="/controllers/0modules/loading.js?v1543371151"></script>
-<script src="/controllers/boards/edit.js?v1543371151"></script>
-<script src="/controllers/boards/move.js?v1543371151"></script>
-<script src="/controllers/error/index.js?v1543371151"></script>
-<script src="/controllers/feedback/index.js?v1543371151"></script>
-<script src="/controllers/help/keyboard.js?v1543371151"></script>
-<script src="/controllers/help/markdown.js?v1543371151"></script>
-<script src="/controllers/invites/index.js?v1543371151"></script>
-<script src="/controllers/invites/item.js?v1543371151"></script>
-<script src="/controllers/notes/_note_base.js?v1543371151"></script>
-<script src="/controllers/notes/edit/file.js?v1543371151"></script>
-<script src="/controllers/notes/edit/index.js?v1543371151"></script>
-<script src="/controllers/notes/edit/preview.js?v1543371151"></script>
-<script src="/controllers/notes/edit/tags/index.js?v1543371151"></script>
-<script src="/controllers/notes/edit/tags/list.js?v1543371151"></script>
-<script src="/controllers/notes/index.js?v1543371151"></script>
-<script src="/controllers/notes/item.js?v1543371151"></script>
-<script src="/controllers/notes/list.js?v1543371151"></script>
-<script src="/controllers/notes/move.js?v1543371151"></script>
-<script src="/controllers/notes/search.js?v1543371151"></script>
-<script src="/controllers/notes/view.js?v1543371151"></script>
-<script src="/controllers/pages.js?v1543371151"></script>
-<script src="/controllers/settings/delete_account.js?v1543371151"></script>
-<script src="/controllers/settings/export.js?v1543371151"></script>
-<script src="/controllers/settings/index.js?v1543371151"></script>
-<script src="/controllers/settings/logs.js?v1543371151"></script>
-<script src="/controllers/settings/password.js?v1543371151"></script>
-<script src="/controllers/settings/sync/index.js?v1543371151"></script>
-<script src="/controllers/settings/sync/item.js?v1543371151"></script>
-<script src="/controllers/sidebar/boards.js?v1543371151"></script>
-<script src="/controllers/sidebar/index.js?v1543371151"></script>
-<script src="/controllers/sidebar/spaces.js?v1543371151"></script>
-<script src="/controllers/spaces/edit.js?v1543371151"></script>
-<script src="/controllers/spaces/members/item.js?v1543371151"></script>
-<script src="/controllers/spaces/members/list.js?v1543371151"></script>
-<script src="/controllers/spaces/sharing/index.js?v1543371151"></script>
-<script src="/controllers/spaces/sharing/send.js?v1543371151"></script>
-<script src="/controllers/users/_base.js?v1543371151"></script>
-<script src="/controllers/users/debug.js?v1543371151"></script>
-<script src="/controllers/users/join.js?v1543371151"></script>
-<script src="/controllers/users/login.js?v1543371151"></script>
-<script src="/controllers/users/migrate.js?v1543371151"></script>
-<script src="/controllers/users/migration-report.js?v1543371151"></script>
-<script src="/controllers/users/must-login.js?v1543371151"></script>
-<script src="/controllers/users/welcome.js?v1543371151"></script>
-<script src="/models/_sync.js?v1543371151"></script>
-<script src="/models/app.js?v1543371151"></script>
-<script src="/models/board.js?v1543371151"></script>
-<script src="/models/feedback.js?v1543371151"></script>
-<script src="/models/file.js?v1543371151"></script>
-<script src="/models/invite.js?v1543371151"></script>
-<script src="/models/member.js?v1543371151"></script>
-<script src="/models/note.js?v1543371151"></script>
-<script src="/models/profile.js?v1543371151"></script>
-<script src="/models/search.js?v1543371151"></script>
-<script src="/models/space.js?v1543371151"></script>
-<script src="/models/space_invite.js?v1543371151"></script>
-<script src="/models/tag.js?v1543371151"></script>
-<script src="/models/user.js?v1543371151"></script>
-<script src="/build/lib/app/lib-permissions.js?v1543371151"></script>
-<script src="/build/lib/app/locales.js?v1543371151"></script>
-<script src="/build/lib/app/svg-icons.js?v1543371151"></script>
-<script src="/build/lib/app/templates.js?v1543371151"></script>
-<script src="/main.js?v1543371151"></script>
+<link rel="stylesheet" href="/build/css/vnd/reset.css?v1546928134">
+<link rel="stylesheet" href="/build/css/fonts.css?v1546928134">
+<link rel="stylesheet" href="/build/css/template.css?v1546928134">
+<link rel="stylesheet" href="/build/css/general.css?v1546928134">
+<link rel="stylesheet" href="/build/css/fonts.css?v1546928134">
+<link rel="stylesheet" href="/build/css/katex.css?v1546928134">
+<link rel="stylesheet" href="/build/css/modules/actions.css?v1546928134">
+<link rel="stylesheet" href="/build/css/modules/barfr.css?v1546928134">
+<link rel="stylesheet" href="/build/css/modules/form.css?v1546928134">
+<link rel="stylesheet" href="/build/css/modules/item-actions.css?v1546928134">
+<link rel="stylesheet" href="/build/css/modules/modal.css?v1546928134">
+<link rel="stylesheet" href="/build/css/modules/search.css?v1546928134">
+<link rel="stylesheet" href="/build/css/modules/sidebar.css?v1546928134">
+<link rel="stylesheet" href="/build/css/site/boards.css?v1546928134">
+<link rel="stylesheet" href="/build/css/site/export.css?v1546928134">
+<link rel="stylesheet" href="/build/css/site/feedback.css?v1546928134">
+<link rel="stylesheet" href="/build/css/site/help.css?v1546928134">
+<link rel="stylesheet" href="/build/css/site/notes.css?v1546928134">
+<link rel="stylesheet" href="/build/css/site/settings.css?v1546928134">
+<link rel="stylesheet" href="/build/css/site/spaces.css?v1546928134">
+<link rel="stylesheet" href="/build/css/site/tags.css?v1546928134">
+<link rel="stylesheet" href="/build/css/site/users.css?v1546928134">
+<script src="/lib/vnd/mootools-core-1.5.2.js?v1546928134"></script>
+<script src="/lib/vnd/mootools-more-1.5.1.js?v1546928134"></script>
+<script src="/lib/vnd/composer.js?v1546928134"></script>
+<script src="/lib/vnd/bluebird.js?v1546928134"></script>
+<script src="/lib/vnd/History.mootools.js?v1546928134"></script>
+<script src="/lib/vnd/autocomplete.js?v1546928134"></script>
+<script src="/lib/vnd/barfr.js?v1546928134"></script>
+<script src="/lib/vnd/fuzzy.js?v1546928134"></script>
+<script src="/lib/vnd/hammer-2.0.8.js?v1546928134"></script>
+<script src="/lib/vnd/handlebars.runtime-v4.0.11.js?v1546928134"></script>
+<script src="/lib/vnd/i18next.js?v1546928134"></script>
+<script src="/lib/vnd/katex.js?v1546928134"></script>
+<script src="/lib/vnd/loglevel.js?v1546928134"></script>
+<script src="/lib/vnd/lunr.js?v1546928134"></script>
+<script src="/lib/vnd/markdown-it-katex.js?v1546928134"></script>
+<script src="/lib/vnd/markdown-it-task-lists.js?v1546928134"></script>
+<script src="/lib/vnd/markdown-it.js?v1546928134"></script>
+<script src="/lib/vnd/masonry.pkgd.js?v1546928134"></script>
+<script src="/lib/vnd/mobile.js?v1546928134"></script>
+<script src="/lib/vnd/morphdom.js?v1546928134"></script>
+<script src="/lib/vnd/sexhr.js?v1546928134"></script>
+<script src="/lib/vnd/sodium.js?v1546928134"></script>
+<script src="/lib/vnd/velocity.js?v1546928134"></script>
+<script src="/lib/vnd/velocity.ui.js?v1546928134"></script>
+<script src="/handlers/_init.js?v1546928134"></script>
+<script src="/handlers/boards.js?v1546928134"></script>
+<script src="/handlers/invites.js?v1546928134"></script>
+<script src="/handlers/notes.js?v1546928134"></script>
+<script src="/handlers/settings.js?v1546928134"></script>
+<script src="/handlers/spaces.js?v1546928134"></script>
+<script src="/handlers/users.js?v1546928134"></script>
+<script src="/config/config.js?v1546928134"></script>
+<script src="/config/auth.js?v1546928134"></script>
+<script src="/config/constants.js?v1546928134"></script>
+<script src="/config/routes.js?v1546928134"></script>
+<script src="/lib/app/_functions.js?v1546928134"></script>
+<script src="/lib/app/backstate.js?v1546928134"></script>
+<script src="/lib/app/composer_sync.js?v1546928134"></script>
+<script src="/lib/app/core-adaptors/_base.js?v1546928134"></script>
+<script src="/lib/app/core-adaptors/websocket.js?v1546928134"></script>
+<script src="/lib/app/handlebars.helpers.js?v1546928134"></script>
+<script src="/lib/app/keyboard.js?v1546928134"></script>
+<script src="/lib/app/modal.js?v1546928134"></script>
+<script src="/lib/app/overlay.js?v1546928134"></script>
+<script src="/lib/app/param_router.js?v1546928134"></script>
+<script src="/lib/app/public_setting.js?v1546928134"></script>
+<script src="/lib/app/remember-me/_base.js?v1546928134"></script>
+<script src="/lib/app/remember-me/localstorage.js?v1546928134"></script>
+<script src="/lib/app/timer.js?v1546928134"></script>
+<script src="/controllers/0modules/action.js?v1546928134"></script>
+<script src="/controllers/0modules/form.js?v1546928134"></script>
+<script src="/controllers/0modules/header.js?v1546928134"></script>
+<script src="/controllers/0modules/item-actions.js?v1546928134"></script>
+<script src="/controllers/0modules/loading.js?v1546928134"></script>
+<script src="/controllers/0modules/action.js?v1546928134"></script>
+<script src="/controllers/0modules/form.js?v1546928134"></script>
+<script src="/controllers/0modules/header.js?v1546928134"></script>
+<script src="/controllers/0modules/item-actions.js?v1546928134"></script>
+<script src="/controllers/0modules/loading.js?v1546928134"></script>
+<script src="/controllers/boards/edit.js?v1546928134"></script>
+<script src="/controllers/boards/move.js?v1546928134"></script>
+<script src="/controllers/error/index.js?v1546928134"></script>
+<script src="/controllers/feedback/index.js?v1546928134"></script>
+<script src="/controllers/help/keyboard.js?v1546928134"></script>
+<script src="/controllers/help/markdown.js?v1546928134"></script>
+<script src="/controllers/invites/index.js?v1546928134"></script>
+<script src="/controllers/invites/item.js?v1546928134"></script>
+<script src="/controllers/notes/_note_base.js?v1546928134"></script>
+<script src="/controllers/notes/edit/file.js?v1546928134"></script>
+<script src="/controllers/notes/edit/index.js?v1546928134"></script>
+<script src="/controllers/notes/edit/preview.js?v1546928134"></script>
+<script src="/controllers/notes/edit/tags/index.js?v1546928134"></script>
+<script src="/controllers/notes/edit/tags/list.js?v1546928134"></script>
+<script src="/controllers/notes/index.js?v1546928134"></script>
+<script src="/controllers/notes/item.js?v1546928134"></script>
+<script src="/controllers/notes/list.js?v1546928134"></script>
+<script src="/controllers/notes/move.js?v1546928134"></script>
+<script src="/controllers/notes/search.js?v1546928134"></script>
+<script src="/controllers/notes/view.js?v1546928134"></script>
+<script src="/controllers/pages.js?v1546928134"></script>
+<script src="/controllers/settings/delete_account.js?v1546928134"></script>
+<script src="/controllers/settings/export.js?v1546928134"></script>
+<script src="/controllers/settings/index.js?v1546928134"></script>
+<script src="/controllers/settings/logs.js?v1546928134"></script>
+<script src="/controllers/settings/password.js?v1546928134"></script>
+<script src="/controllers/settings/sync/index.js?v1546928134"></script>
+<script src="/controllers/settings/sync/item.js?v1546928134"></script>
+<script src="/controllers/sidebar/boards.js?v1546928134"></script>
+<script src="/controllers/sidebar/index.js?v1546928134"></script>
+<script src="/controllers/sidebar/spaces.js?v1546928134"></script>
+<script src="/controllers/spaces/edit.js?v1546928134"></script>
+<script src="/controllers/spaces/members/item.js?v1546928134"></script>
+<script src="/controllers/spaces/members/list.js?v1546928134"></script>
+<script src="/controllers/spaces/sharing/index.js?v1546928134"></script>
+<script src="/controllers/spaces/sharing/send.js?v1546928134"></script>
+<script src="/controllers/users/_base.js?v1546928134"></script>
+<script src="/controllers/users/debug.js?v1546928134"></script>
+<script src="/controllers/users/join.js?v1546928134"></script>
+<script src="/controllers/users/login.js?v1546928134"></script>
+<script src="/controllers/users/migrate.js?v1546928134"></script>
+<script src="/controllers/users/migration-report.js?v1546928134"></script>
+<script src="/controllers/users/must-login.js?v1546928134"></script>
+<script src="/controllers/users/welcome.js?v1546928134"></script>
+<script src="/models/_sync.js?v1546928134"></script>
+<script src="/models/app.js?v1546928134"></script>
+<script src="/models/board.js?v1546928134"></script>
+<script src="/models/feedback.js?v1546928134"></script>
+<script src="/models/file.js?v1546928134"></script>
+<script src="/models/invite.js?v1546928134"></script>
+<script src="/models/member.js?v1546928134"></script>
+<script src="/models/note.js?v1546928134"></script>
+<script src="/models/profile.js?v1546928134"></script>
+<script src="/models/search.js?v1546928134"></script>
+<script src="/models/space.js?v1546928134"></script>
+<script src="/models/space_invite.js?v1546928134"></script>
+<script src="/models/tag.js?v1546928134"></script>
+<script src="/models/user.js?v1546928134"></script>
+<script src="/build/lib/app/lib-permissions.js?v1546928134"></script>
+<script src="/build/lib/app/locales.js?v1546928134"></script>
+<script src="/build/lib/app/svg-icons.js?v1546928134"></script>
+<script src="/build/lib/app/templates.js?v1546928134"></script>
+<script src="/main.js?v1546928134"></script>
 
 
 	</head>
